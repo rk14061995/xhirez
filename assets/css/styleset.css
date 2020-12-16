@@ -731,3 +731,152 @@ padding:0px 1px;
   font-size: 17px;
   left: 10px;
 }
+.d_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.abtFOr{
+  font-size: 14px;
+  display: block;
+  border-bottom: 1px solid;
+}
+.textForm{
+  font-size: 14px;
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+
+.content_timeline {
+  margin-top: 40px;
+  text-align: center;
+}
+/* Timeline */
+.timeline {
+    border-left: 4px solid lightgray;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+
+    font-family: "Source Sans Pro", sans-serif;
+    /* margin: 50px auto; */
+    margin-left: 115px;
+    /* letter-spacing: 0.5px; */
+    position: relative;
+    line-height: 1.4em;
+    /* font-size: 1.03em; */
+    padding: 50px;
+    list-style: none;
+    text-align: left;
+    /* font-weight: 100; */
+    max-width: 100%;
+}
+.timeline p{
+    font-size:14px;
+    margin-bottom: 0px;
+}
+
+.timeline h5 {
+  margin-bottom: 0px;
+  letter-spacing: 1.5px;
+color:black;
+
+}
+.timeline .event {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 25px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.colBlack{
+  color:black;
+}
+.timeline .event:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+.timeline .event:before,
+.timeline .event:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+.timeline .event:before {
+  left: -195.5px;
+  color: gray;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 13px;
+  min-width: 120px;
+}
+.timeline .event:after {
+  /* box-shadow: 0 0 0 4px #00adef; */
+  left: -57.85px;
+  background: #00adef;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+  top: 5px;
+}
+.TimeMob{
+  display:none;
+}
+
+.input_tes{
+  border: none;
+  border-bottom: 1px solid lightgray;
+  border-radius: 0px;
+}
+.input_tes:focus {
+  outline:none;
+  box-shadow:none;
+}
+
+@media only screen and (max-width:770px){
+  .timeline .event:before {
+    display: none;
+  }
+  .TimeMob{
+    display:block
+  }
+  .timeline {
+    margin-left: 0px;
+    padding: 15px;
+    max-width: 100%;
+  }
+  .timeline .event:after {
+    /* box-shadow: 0 0 0 4px #00adef; */
+    left: -22.85px;
+  }
+  .timeline .event {
+   
+    margin-bottom: 0px;
+  }
+
+  .mob_view{
+    display:none;
+  }
+}
+
+.employEdit{
+  display:none;
+}
+.editdBtn{
+  position: absolute;
+  right: 23px;
+  cursor: pointer;
+}
+.editdBtn:hover{
+  color:#00adef;
+}
+
+.deletedBtn{
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+.deletedBtn:hover{
+  color:#00adef;
+}
