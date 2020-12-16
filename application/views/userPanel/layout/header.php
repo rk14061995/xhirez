@@ -91,8 +91,8 @@
                                     <img src='<?=base_url("/assets/images/user-dummy.png")?>' class="img-fluid"></img>
                                 </a>
                                 <ul class="dropdown-menu dropMenu userDrop py-0">
-                                <li><a class="dropdown-item" href="#"> My Contact Details</a></li>
-                                    <li><a to="" class="dropdown-item" > My Recent Jobs</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url("Employee-Profile")?>"> My Profile</a></li>
+                                    <li><a href="<?=base_url("Employee-Profile")?>" class="dropdown-item" > My Recent Jobs</a></li>
                                     <li><a to="" class="dropdown-item" > My Recent Searches</a></li>
                                     <li><a href="<?=base_url('Employee-Change-Password')?>" class="dropdown-item" > Change Password</a></li>
                                     <li><a href="<?=base_url('Employee-Log-out')?>" class="dropdown-item" > Logout</a></li>
