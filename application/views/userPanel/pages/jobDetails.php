@@ -1,3 +1,13 @@
+<?php
+  // $jobDetails->job_title
+    $jobSkills=implode(',',$jobDetails[0]['skills']);
+    // print_r($jobSkills);
+    $jobDetails=$jobDetails[0]['JD'];
+ 
+?>
+
+
+
 <section class="paduj5 backG">
 
     <div class="  pt-4">
@@ -9,10 +19,10 @@
                      <h4 class="colBrown">Job Details</h4>
                       <div class="row mt-3 mx-0 form-group">
                           <div class="col-md-4">
-                              <strong>Job Title</strong>
+                              <strong><?=$jobDetails->job_title?></strong>
                           </div>
                           <div class="col-md-8">
-                              <span>Hiring for Java full Stack Developer II Bangalore II Exp min 5 years</span>
+                              <span>Hiring for <?=$jobDetails->job_title?> <?=$jobDetails->job_location?> II Exp min <?=$jobDetails->min_work_exp?> years</span>
                           </div>
                       </div>
 
@@ -21,7 +31,7 @@
                               <strong>Employment type</strong>
                           </div>
                           <div class="col-md-8">
-                              <span>Permanent</span>
+                              <span><?=$jobDetails->type_name?></span>
                           </div>
                       </div>
                       <div class="row mt-3 mx-0 form-group">
@@ -29,25 +39,27 @@
                             <strong>Industry of the Employer</strong>
                         </div>
                         <div class="col-md-8">
-                            <span>IT - Software</span>
+                            <span><?=$jobDetails->category_name?></span>
                         </div>
                       </div>
-                      <div class="row mt-3 mx-0 form-group">
+                      <!-- <div class="row mt-3 mx-0 form-group">
                         <div class="col-md-4">
                             <strong>Department / Functional Area of the Job</strong>
                         </div>
                         <div class="col-md-8">
                             <span>Media Planning / Buying, Application Programming / Maintenance</span>
                         </div>
-                    </div>
+                      </div> -->
                     <div class="row mt-3 mx-0 form-group">
                       <div class="col-md-4">
                           <strong>Job Description</strong>
                       </div>
                       <div class="col-md-8">
-                        <strong>
-                          We are seeking experienced Full stack developer between 5- 10 years who have hands-on development experience in Java, J2EE, Web services, Frameworks, and UI Technologies. This position is for a technology expert who will be responsible for multiple applications.</strong>
-                          <br>
+                        <?=$jobDetails->job_desc?>
+                        <!-- <strong>
+                          We are seeking experienced Full stack developer between 5- 10 years who have hands-on development experience in Java, J2EE, Web services, Frameworks, and UI Technologies. This position is for a technology expert who will be responsible for multiple applications.
+                        </strong> -->
+                          <!-- <br>
                           <br>
                           <strong>Skills :</strong>
                           <span>Excellent communication, teamwork and interpersonal skills.
@@ -56,8 +68,8 @@
                             More than 5 years of work experience in software development.
                             OOPS, Database Knowledge (Sybase/ DB2)</span>
                             <br>
-                          <br>
-                          <strong>Required Technical Skills : </strong>
+                          <br> -->
+                          <!-- <strong>Required Technical Skills : </strong>
                           <ul class="list-unstyled">
                               <li>
                                 <span>Java / Core Java / Advanced Java</span>
@@ -105,10 +117,10 @@
                                 <span>Joining: Immediate to 15 Days only</span>
                               </li>
                                 
-                          </ul>
+                          </ul> -->
 
                           <div class="mt-4">
-                            <strong>Interested can share updated resume at hr@syoloconsulting.com</strong>
+                            <strong>Interested can share updated resume at <?=$jobDetails->hr_email_id?></strong>
                           </div>
                       </div>
                     </div>
@@ -117,26 +129,26 @@
                           <strong>Keywords / Skills</strong>
                       </div>
                       <div class="col-md-8">
-                          <span>Java,Hibernate,Struts,"Spring Framework","Core Java",Servlets,"Advanced Java",Angular</span>
+                          <span><?=$jobSkills?></span>
                       </div>
                     </div>
-                    <div class="row mt-3 mx-0 form-group">
+                    <!-- <div class="row mt-3 mx-0 form-group">
                       <div class="col-md-4">
                           <strong>Mandatory Skills</strong>
                       </div>
                       <div class="col-md-8">
                           <span>java, angular</span>
                       </div>
-                    </div>
-                    <div class="row mt-3 mx-0 form-group">
+                    </div> -->
+                    <!-- <div class="row mt-3 mx-0 form-group">
                       <div class="col-md-4">
                           <strong>Total Experience</strong>
                       </div>
                       <div class="col-md-8">
                           <span>5 Yrs to 8 Yrs</span>
                       </div>
-                    </div>
-                  <div class="row mt-3 mx-0 form-group">
+                    </div> -->
+                 <!--  <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
                         <strong>Salary Type</strong>
                     </div>
@@ -160,18 +172,18 @@
                         <span>Bangalore</span>
                     </div>
                   </div>
-
-                  <div class="row mt-3 mx-0 form-group">
+ -->
+                 <!--  <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
                         <strong>Job Type :</strong>
                     </div>
                     <div class="col-md-8">
                         <span>Full time</span>
                     </div>
-                  </div>
+                  </div> -->
 
                 
-                  <div class="row mt-3 mx-0 form-group">
+                  <!-- <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
                         <strong>Shift Type :</strong>
                     </div>
@@ -188,8 +200,8 @@
                     <div class="col-md-8">
                         <span>Any</span>
                     </div>
-                  </div>
-                  <div class="row mt-3 mx-0 form-group">
+                  </div> -->
+                 <!--  <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
                         <strong>Current Location:</strong>
                     </div>
@@ -212,9 +224,9 @@
                     <div class="col-md-8">
                         <span>Any</span>
                     </div>
-                  </div>
+                  </div> -->
 
-                  <h5 class="mt-3 mb-2">Company Details</h5>
+                  <!-- <h5 class="mt-3 mb-2">Company Details</h5>
 
                   <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
@@ -246,9 +258,9 @@
                     <div class="col-md-8">
                        <input type="text" name="" class="form-control pamInput">
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row mt-3 mx-0 form-group">
+                  <!-- <div class="row mt-3 mx-0 form-group">
                     <div class="col-md-4">
                         <strong>Email</strong><sup class="text-danger">*</sup>
                     </div>
@@ -297,7 +309,7 @@
                         <button class="ntns">Cancel</button>
                       </li>
 
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
 

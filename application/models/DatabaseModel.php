@@ -26,6 +26,7 @@
 				return 2;
 			}
 		}
+
 		public function updateReacord($table_name,$toUpdate){
 			if($this->db->update($table_name,$toUpdate)){
 				return true;
@@ -33,11 +34,20 @@
 				return false;
 			}
 		}
+		
+		public function update_Data($table_name,$toUpdate,$condition){
+			if($this->db->where($condition)->update($table_name,$toUpdate)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 		public function getSkillDetial($id){
 			return $this->db->where('skill_id',$id)->get('skills_')->row();
 		}
 		public function getJobsSearch($sh_Query){
-			print_r($sh_Query);
+			// print_r($sh_Query);
 			$skill_name=$sh_Query['skill_name'];
 			$city=$sh_Query['city'];
 			$condition="";
@@ -67,10 +77,10 @@
 			
 			if($skill_name!="" && $city!=""){
 				// echo 'both are not null';
-				echo $query="SELECT jobs_added.*, company_.company_name, company_.comp_phone, company_.website_url,  company_.company_email, company_.company_logo, company_.	comp_address   from jobs_added join company_ on company_.company_id= jobs_added.added_by_company_id where (job_title Like '%$skill_name%' AND job_location_ Like '%$city%') $condition order by job_id desc limit 6";
+				$query="SELECT jobs_added.*, company_.company_name, company_.comp_phone, company_.website_url,  company_.company_email, company_.company_logo, company_.	comp_address   from jobs_added join company_ on company_.company_id= jobs_added.added_by_company_id where (job_title Like '%$skill_name%' AND job_location_ Like '%$city%') $condition order by job_id desc limit 6";
 			}else{
 				// echo 'One is null';
-				echo $query="SELECT jobs_added.*, company_.company_name, company_.comp_phone, company_.website_url,  company_.company_email, company_.company_logo, company_.	comp_address   from jobs_added join company_ on company_.company_id= jobs_added.added_by_company_id where (job_title Like '%$skill_name%' OR job_location_ Like '%$city%') $condition order by job_id desc limit 6";
+				$query="SELECT jobs_added.*, company_.company_name, company_.comp_phone, company_.website_url,  company_.company_email, company_.company_logo, company_.	comp_address   from jobs_added join company_ on company_.company_id= jobs_added.added_by_company_id where (job_title Like '%$skill_name%' OR job_location_ Like '%$city%') $condition order by job_id desc limit 6";
 			}
 			// $data['allskills']=$this->db->get('skills_')->result();
 			

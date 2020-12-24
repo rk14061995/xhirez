@@ -15,9 +15,13 @@ function __construct(){
  		// $this->load->view('Layout/footer');
  	}
  	public function applyJob(){
+ 		$jobSeeker=unserialize($this->session->userdata('jobSeekerSession'));
+ 		// print_r($jobSeeker[0]->user_id);
+ 		$user_id=$jobSeeker[0]->user_id;
+ 		// die;
  		$data=array(	
  						"job_post_id"=>$this->input->post('job_id'),
- 						"applied_by"=>$this->input->post('employee_id')
+ 						"applied_by"=>$user_id
  					);
  		if(count($this->db->where($data)->get('job_application')->result())==0){
  			if($this->db->insert('job_application',$data)){	
@@ -30,10 +34,12 @@ function __construct(){
  		}
  	}
  	public function bookMarkJob(){
+ 		$jobSeeker=unserialize($this->session->userdata('jobSeekerSession'));
  		
+ 		$user_id=$jobSeeker[0]->user_id;
  		$data=array(	
  						"job_post_id"=>$this->input->post('job_id'),
- 						"applied_by"=>$this->input->post('employee_id')
+ 						"applied_by"=>$user_id
  					);
  		if(count($this->db->where($data)->get('bookmarked_job')->result())==0){
  			if($this->db->insert('bookmarked_job',$data)){	
@@ -70,6 +76,18 @@ function __construct(){
  		}else{
  			die(json_encode(array("code"=>0,"data"=>'No Data Found.')));
  		}
+ 	}
+ 	public function getJobsFromUserDashboard(){
+ 		// print_r($_REQUEST);
+ 		$jobs=$this->DTB->getJobsSearch($_REQUEST);
+ 		if(count($jobs)>0){
+ 			die(json_encode(array("code"=>1,"data"=>$jobs)));
+ 		}else{
+ 			die(json_encode(array("code"=>0,"data"=>"No Job Found")));
+ 		}
+ 		
+
+
  	}
 
 

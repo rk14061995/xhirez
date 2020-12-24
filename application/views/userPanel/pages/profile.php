@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-2">
                 <div class="d_center h-100 mt-n2">
-                    <button class="btn-default btn border p-3 w-100  text-white">Download CV</button>
+                    <a href="<?=base_url('assets/user_resume/').$resumePath?>" class="btn-default btn border p-3 w-100  text-white">Download CV</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 
                 <div class=" p-3  pt-5">
                     <span class="abtFOr border-bottom colBlack"><strong>ABOUT ME</strong></span>
-                    <p class="textForm"><?=$userDetails[0]->basic_introduction?></p>
+                    <p class="textForm"><?=$jobSeekerDetail->basic_introduction?></p>
                 </div>
                 
                 <script>
@@ -726,7 +726,8 @@
                             <h5 class="mb-0"><?=ucwords($userDetails[0]->fullname)?></h5>
                             <div class="">
                                 <div class="position-relative">
-                                    <small><?=ucfirst($userDetails[0]->basic_introduction)?></small>
+
+                                    <small><?=ucfirst($jobSeekerDetail->basic_introduction)?></small>
                                    <?php 
                                     if($userDetails[0]->basic_introduction){ ?>
                                         <span title="Update Information" class="pointer infoIcon"><i class="fas fa-edit"></i> </span>
@@ -760,7 +761,12 @@
                                 processData:false,
                                 data:formData,
                                 success:function(response){
-
+                                    response=JSON.parse(response);
+                                    if(response.code==1){
+                                        swal("Great", "Bio Updated", "success");
+                                    }else{
+                                        swal("Sorry", "Something Went Wrong", "error");
+                                    }
                                 }
                             })
                         });
@@ -773,7 +779,7 @@
                     </script>
                     <div class="portDFO ml-0 pb-3 ">
                         <h6 class="mb-0">Skills</h6>
-                        <small>HTML, Bootstrap, jquery</small>
+                        <small><?= implode(', ', $skill_s)?></small>
                     </div>
                    <div class="ml-0 pt-3 border-top">
                         <div class=" dsp_P">
@@ -797,13 +803,10 @@
                         </div>
                     </div>
                     <div class=" ml-0 py-3 ">
-                       <a class="lightBTn">Yes, Update</a>
+                       <a class="lightBTn" href="<?=base_url('assets/user_resume/').$resumePath?>" download>Download</a>
                        <a class="ml-2 lightBTn" data-toggle="modal" data-target="#resumeModal" >Upload Resume</a>
                     </div>
-                   <div class="ml-0 pt-3 border-top">
-                        <p class="font12 mb-3">Build impressive resume instantly with ready to use templates.</p>
-                        <a class=" darkBtn">Build your Resume</a>
-                   </div>
+                   
                 </div>
 
                 
@@ -821,5 +824,58 @@
             );
             return fix_element;
         }());
+    });
+</script>
+
+<div class="modal fade" id="resumeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h4 class="modal-title" id="exampleModalLabel">Upload Resume</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+            <form action="text-center" id="uploadThisResume">
+                <div class="form-group">
+                    <label class="btn-default pointer" for="resumeupload"> <img src="<?=base_url('assets/images/resume.png')?>" class="img-fluid"> <small>Click here to  upload resume</small> </label>
+                        <input id="resumeupload" type="file" name="resume" class="d-none">
+                   
+                </div>
+                <div class="">
+                    <button class=" darkBtn w-100">Upload</button> 
+                </div>
+            </form>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).on('submit','#uploadThisResume',function(e){
+        e.preventDefault();
+        var formData = new FormData($(this)[0]);
+        $.ajax({
+            url:"<?=base_url('UserPanel/uploadResume')?>",
+            enctype:"multipart/form-data",
+            type:"post",
+            cache:false,
+            contentType:false,
+            processData:false,
+            data:formData,
+            success:function(response){
+                console.log(response);
+                response=JSON.parse(response);
+                if(response.code==1){
+                    swal("Great", "Resume Uploaded", "success");
+                }else{
+                    swal("Sorry", "Something Went Wrong", "error");
+                }
+            }
+        })
     });
 </script>
