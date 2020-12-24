@@ -51,7 +51,7 @@
                                     <a href="<?=base_url('Employer-Post-Job')?>" class="dropdown-item" >Post Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="<?=base_url("CompanyAdmin/PostWalkInJobs")?>" class="dropdown-item" > Post Walkin Jobs</a>
+                                    <a href="<?=base_url("Employer-Post-Walkin")?>" class="dropdown-item" > Post Walkin Jobs</a>
                                 </li>
                                 <li>
                                     <a href="<?=base_url("CompanyAdmin/ManageJobs")?>" class="dropdown-item" > Manage Jobs</a>
@@ -62,13 +62,16 @@
                             <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Email/ SMS</a>
                             <ul class="dropdown-menu dropMenu py-0">
                                 <li>
-                                    <a href="<?=base_url("CompanyAdmin/EmailTemplate")?>" class="dropdown-item" > New Enail Template</a>
+                                    <a href="<?=base_url("Employer-Email-Template")?>" class="dropdown-item" > New Enail Template</a>
                                 </li>
                                 <li>
-                                    <a href="<?=base_url("CompanyAdmin/ManageEmails")?>" class="dropdown-item" > Manage Email Template</a>
+                                    <a href="<?=base_url("Employer-Manage-Email")?>" class="dropdown-item" > Manage Email Template</a>
                                 </li>
                                 <!-- {/* <li><a to="/company-panel/manage-jobs" class="dropdown-item" > Email Dashboard</a></li> */} -->
                             </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="<?=base_url("Employer-Candidate")?>">Candidate Search </a>
                         </li>
                     </ul>
                     <div class="ml-auto mt-3">

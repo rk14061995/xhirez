@@ -86,8 +86,11 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['Employer-SignUp'] = 'LoginController/companyRegistrationPage';
 	$route['Employer-Dashboard'] = 'CompanyAdmin/dashboard';
 	$route['Employer-Post-Job'] = 'CompanyAdmin/PostNewJobs';
-
+	$route['Employer-Post-Walkin'] = 'CompanyAdmin/PostWalkInJobs';
 	$route['Employer-Candidate'] = 'CompanyAdmin/CandidateSearch';
+
+	$route['Employer-Email-Template'] = 'CompanyAdmin/EmailTemplate';
+	$route['Employer-Manage-Email'] = 'CompanyAdmin/ManageEmails';
 
 	$route['Employee-Log-out'] = 'LoginController/companylogout';
 

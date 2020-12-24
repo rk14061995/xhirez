@@ -20,12 +20,11 @@
                 
                     <ul class="w-100 mt-3 pl-0 htomin d-flex">
                         <li class="">
-                            <button class="ntns ml-0">Post A Job</button>
+                            <a href="<?=base_url('Employer-Post-Job')?>" class="ntns ml-0">Post A Job</a>
                         </li>
                         <li class="">
-                        <button class="ntns">Post A Walkin</button>
+                        <a href="<?=base_url("CompanyAdmin/PostWalkInJobs")?>" class="ntns">Post A Walkin</a>
                         </li>
-                    
                     </ul>
                 </div>
             </div>

@@ -2,7 +2,8 @@
 class CompanyAdmin extends CI_Controller{
 function __construct(){
 	parent::__construct();
-
+	$this->load->model('DatabaseModel','DTB');
+	$this->load->model('CompanyAdmin_model','CAM');
 }
 
 
@@ -15,8 +16,10 @@ function __construct(){
  	}
 
  	public function PostNewJobs(){
+		$data['industry']=$this->db->get('job_category')->result();
+		$data['skills']=$this->db->get('skills_')->result();
  		$this->load->view('companyPanel/layout/header');
- 		$this->load->view('companyPanel/pages/postNewJobs');
+ 		$this->load->view('companyPanel/pages/postNewJobs',$data);
  		$this->load->view('companyPanel/layout/footer');
  	}
 
@@ -56,9 +59,22 @@ function __construct(){
         // $this->load->view('Layout/footer');
 	}
 	public function CandidateSearch(){
+		
+		$data['usersData'] = $this->CAM->getUsers();
+		print_r($data);
+		die();
+		
+		$this->load->view('companyPanel/layout/header');
+        $this->load->view('companyPanel/pages/candidateSearch',$data);
+        $this->load->view('companyPanel/layout/footer');
+	}
+	public function addPost(){
+		print_r($_POST);
+		die();
 		$this->load->view('companyPanel/layout/header');
         $this->load->view('companyPanel/pages/candidateSearch');
         $this->load->view('companyPanel/layout/footer');
 	}
+
 
 }

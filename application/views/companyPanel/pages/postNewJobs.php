@@ -17,7 +17,7 @@
     </div>
    	<div class="">
         <div class="">
-           <div class="row py-5">
+           <!-- <div class="row py-5">
               <div class="col-md-7">
                 <div class="m-auto w-75">
 
@@ -30,9 +30,9 @@
                
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="">
+            <div class="mt-5">
               <div class="row mx-0">
                 <div class="col-md-8">
                     <div class="pppDSK">
@@ -44,23 +44,24 @@
                               </a>
                             </div>
                           </div>
-                          <div class="col-md-4 pihs">
+                        </div> 
+                          <!-- <div class="col-md-4 pihs">
                             <div class="">
-                              <a href="">
+                              <span href="">
                                 Desired Candidate Details
-                              </a>
+                              </span>
                             </div>
-                          </div>
-                          <div class="col-md-4 pihs">
+                          </div> -->
+                          <!-- <div class="col-md-4 pihs">
                             <div class="">
                               <a href="">
                                 Job Scheduling
                               </a>
                             </div>
-                          </div>
-                        </div>
+                          </div> -->
+                        
 
-                        <div class="mt-3 shadow bg-white p-3">
+                        <!-- <div class="mt-3 shadow bg-white p-3">
                             <p class="">Please select which type of job you want to post:</p>
                             <div class="matchds">
                                  <div class="d-flex">
@@ -70,68 +71,70 @@
                                     <div class="ml-2"> Smart Match <sup>*</sup></div>
                                   </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="mt-3 shadow  p-4">
-                            <div class="position-relative">
+                            <form class="position-relative" method="POST" action="<?=base_url('CompanyAdmin/addPost')?>">
                               <div class="form__group field">
                                 <input type="text" class="form__field" placeholder="Name" name="name" id='name' required />
                                 <label for="name" class="form__label">Job Title</label>
                               </div>
-
+ 
                               <div class="form__group">
                                 <label>Employment type</label>
                                 <div class="row">
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" checked name="employ"/>
+                                        <input type="radio" checked name="employType" id="permanent"/>
                                       </div>
-                                      <div class="ml-2"> Permanent</div>
+                                      <label class="ml-2 mb-0" for="permanent"> Permanent</label>
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" name="employ"/>
+                                        <input type="radio" name="employType" id="contractual"/>
                                       </div>
-                                      <div class="ml-2"> Contractual</div>
+                                      <label class="ml-2 mb-0" for="contractual"> Contractual</label>
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" name="employ"/>
+                                        <input type="radio" name="employType" id="intern"/>
                                       </div>
-                                      <div class="ml-2"> Internship</div>
+                                      <label class="ml-2 mb-0" for="intern"> Internship</label>
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" name="employ"/>
+                                        <input type="radio" name="employType" id="wfh"/>
                                       </div>
-                                      <div class="ml-2"> Work from home</div>
+                                      <label class="ml-2 mb-0" for="wfh"> Work from home</label>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="form__group field">
-                                <input type="number" class="form__field" value="1" min="1" placeholder="Name" id="vacancies" required />
-                                <label for="vacancies" class="form__label">Number of Vacancies <sup class="text-danger">*</sup></label>
-                              </div>
-                              <div class="form__group field">
-                                 <select type="number" class="form__field"id="industry" required >
-                                    <option selected disabled>select</option>
-                                  </select>
-                                <label for="vacancies" class="form__label">Industry of the employer <sup class="text-danger">*</sup></label>
-                              </div>
-                              <div class="form__group field">
-                                <select type="number" class="form__field"id="industry" required >
-                                   <option selected disabled>select</option>
-                                 </select>
-                               <label for="vacancies" class="form__label">Department / Functional Area of the Job <sup class="text-danger">*</sup></label>
+                             <div class="row mx-0">
+                              <div class="form__group field col-md-6 px-2">
+                                  <input type="number" class="form__field" value="1" min="1" placeholder="Name" id="vacancies" required />
+                                  <label for="vacancies" class="form__label">Number of Vacancies <sup class="text-danger">*</sup></label>
+                                </div>
+                                <div class="form__group field col-md-6 px-2">
+                                  <select type="number" class="form__field" name="industry" required >
+                                  <option selected disabled>select</option>
+                                              <?php
+                                                  foreach($industry as $categories){ ?>
+                                                        <option value="<?=$categories->category_id?>"><?=$categories->category_name?></option>
+                                              <?php    }
+                                              ?>
+                                    </select>
+                                  <label for="vacancies" class="form__label">Industry of the employer <sup class="text-danger">*</sup></label>
+                                </div>
                              </div>
+                            
                              <div class="form__group field">
                              	<label for="vacancies" class="form__label mb-3">Job Description <sup class="text-danger">*</sup></label>
                                 <div class="pt-3">
@@ -144,18 +147,15 @@
                              <div class="row mx-0">
                              	<div class="col-md-6 pl-0">
                              		<div class="form__group field">
-		                                <select type="number" class="form__field"id="industry" required >
-		                                   <option selected disabled>select</option>
-		                                 </select>
+		                                <input type="number" class="form__field" name="minExp" required >
+		                                  
 		                               <label for="vacancies" class="form__label">Min Exp <sup class="text-danger">*</sup></label>
 		                            </div>
                              	</div>
                              	<div class="col-md-6 pr-0">
                              		<div class="form__group field">
-		                                <select type="number" class="form__field"id="industry" required >
-		                                   <option selected disabled>select</option>
-		                                 </select>
-		                               <label for="vacancies" class="form__label">Max Exp <sup class="text-danger">*</sup></label>
+                                    <input type="number" class="form__field" name="maxExp" required >
+                                    <label for="vacancies" class="form__label">Max Exp <sup class="text-danger">*</sup></label>
 		                            </div>
                              	</div>
                              </div>
@@ -166,17 +166,17 @@
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" checked name="salary"/>
+                                        <input type="radio" checked name="salaryType" id="yrs"/>
                                       </div>
-                                      <div class="ml-2"> Yearly</div>
+                                      <label class="ml-2 mb-0" for="yrs"> Yearly</label>
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" name="salary"/>
+                                        <input type="radio" name="salaryType" id="mnth"/>
                                       </div>
-                                      <div class="ml-2"> Monthly</div>
+                                      <label class="ml-2 mb-0" for="mnth"> Monthly</label>
                                     </div>
                                   </div>
                                  
@@ -186,23 +186,19 @@
                               <div class="row mx-0">
                              	<div class="col-md-6 pl-0">
                              		<div class="form__group field">
-		                                <select  class="form__field"id="industry" required >
-		                                 
-		                                 </select>
+                                    <input type="number" class="form__field" name="minSalary" required >
 		                               <label for="vacancies" class="form__label">Min Salary <sup class="text-danger">*</sup></label>
 		                            </div>
-		                            <div class="d-flex">
+		                                <!-- <div class="d-flex">
                                       <div class="">
                                         <input type="checkbox"  name="employ"/>
                                       </div>
                                       <div class="ml-2"> <small> Hide Salary from Candidates</small></div>
-                                    </div>
+                                    </div> -->
                              	</div>
                              	<div class="col-md-6 pr-0">
                              		<div class="form__group field">
-		                                <select  class="form__field"id="industry" required >
-		                                 
-		                                 </select>
+                                    <input type="number" class="form__field" name="maxSalary" required >
 		                               <label for="vacancies" class="form__label">Max Salary <sup class="text-danger">*</sup></label>
 		                            </div>
                              	</div>
@@ -210,31 +206,29 @@
 
                             <div class="">
 	                            <div class="form__group field">
-	                                <select  class="form__field"id="industry" required >
-	                                   <option selected disabled>Select Job Location</option>
-	                                 </select>
-	                               <label for="vacancies" class="form__label">Location of the Job <sup class="text-danger">*</sup></label>
+                                  <textarea class="form__field" name="company_address" rows="4" required ></textarea>
+	                                <label for="vacancies" class="form__label">Location of the Job <sup class="text-danger">*</sup></label>
 	                            </div>
-	                            <div class="d-flex">
-                                  <div class="">
-                                    <input type="checkbox"  name="employ" id="internalLoctn"/>
-                                  </div>
-                                  <div class="ml-2"> <small> include international locations</small></div>
-                                </div>
+                                  <!-- <div class="d-flex">
+                                    <div class="">
+                                      <input type="checkbox"  name="employ" id="internalLoctn"/>
+                                    </div>
+                                    <div class="ml-2"> <small> include international locations</small></div>
+                                  </div> -->
 	                        </div>
 
-	                        <div class="form__group field" id="locInter">
+	                        <!-- <div class="form__group field" id="locInter">
 	                            <div class="">
 	                                <select  class="js-example-basic-single form__field"id="industry" required >
 	                                   <option selected disabled>Select International Location</option>
 	                                   <option value="AL">s</option>
 									
-									  <option value="WY">ss</option>
+									                    <option value="WY">ss</option>
 	                                 </select>
 	                             	
 	                            </div>
 	                            
-	                        </div>	
+	                        </div>	 -->
 	                     
                              <div class="form__group">
                                 <label>Job type</label>
@@ -242,17 +236,17 @@
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" checked name="jobtype"/>
+                                        <input type="radio" checked name="jobtype" id="fullTIme"/>
                                       </div>
-                                      <div class="ml-2"> Full time</div>
+                                      <label class="ml-2 mb-0" for="fullTIme"> Full time</label>
                                     </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="radio" name="jobtype"/>
+                                        <input type="radio" name="jobtype" id="partTIme"/>
                                       </div>
-                                      <div class="ml-2"> Part time</div>
+                                      <label class="ml-2 mb-0" for="partTIme"> Part time</label>
                                     </div>
                                   </div>
                                  
@@ -266,55 +260,63 @@
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" checked name=""/>
+                                        <input type="checkbox" checked name="shiftTiming" id="morning" />
                                       </div>
-                                      <div class="ml-2"> Morning</div>
+                                      <label class="ml-2 mb-0" for="morning"> Morning</label>
                                     </div>
                                   </div>
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" name=""/>
+                                        <input type="checkbox" name="shiftTiming" id="noon"/>
                                       </div>
-                                      <div class="ml-2"> Noon</div>
+                                      <label class="ml-2 mb-0" for="noon"> Noon</label>
                                     </div>
                                   </div>
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" name=""/>
+                                        <input type="checkbox" name="shiftTiming" id="evening"/>
                                       </div>
-                                      <div class="ml-2"> Evening</div>
+                                      <label class="ml-2 mb-0" for="evening"> Evening</label>
                                     </div>
                                   </div>
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" name=""/>
+                                        <input type="checkbox" name="shiftTiming" id="night"/>
                                       </div>
-                                      <div class="ml-2"> Night</div>
+                                      <label class="ml-2 mb-0" for="night"> Night</label>
                                     </div>
                                   </div>
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" name=""/>
+                                        <input type="checkbox" name="shiftTiming" id="split"/>
                                       </div>
-                                      <div class="ml-2"> Split</div>
+                                      <label class="ml-2 mb-0" for="split"> Split</label>
                                     </div>
                                   </div>
                                   <div class="col-md-2">
                                     <div class="d-flex">
                                       <div class="">
-                                        <input type="checkbox" name=""/>
+                                        <input type="checkbox" name="shiftTiming" id="rotating"/>
                                       </div>
-                                      <div class="ml-2"> Rotating</div>
+                                      <label class="ml-2 mb-0" for="rotating"> Rotating</label>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                              <div class="form-group">
+                                <select class="js-example-basic-multiple form-control" name="skills[]" multiple="multiple">
+                                  <?php foreach($Skills as $skill): ?>
+                                    <option value="<?=$skill->skill_id?>"><?=ucwords($skill->skill_name)?></option>
+                                    
+                                      <?php endforeach;?>
+                                </select>
+                              </div>
 
-                              <div class="mt-2">
+                              <!-- <div class="mt-2">
                                 <h5 class="my-4">Company Details</h5>
                                 <div class="row mx-0">
                                   <div class="col-md-6">
@@ -362,7 +364,7 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div> -->
 
                               <div class="w-100 mt-4 row mx-0 htomin">
                                 <div class="col-md-2 col-6">
@@ -372,7 +374,7 @@
                                   <button class="ntns">Save as draft</button>
                                 </div>
                               </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -453,5 +455,8 @@
                     }
                 })
             });
-      
+            $(document).ready(function() {
+                $('.js-example-basic-multiple').select2();
+            });
          </script>
+        
