@@ -16,7 +16,10 @@
               <div class="row mx-0">
                 <div class="col-md-8">
                    <div class="bg-white shadow px-4 pt-1 pb-4 UYhu">
-                     <h4 class="colBrown">Job Details</h4>
+                     <div class="dsp_P my-4">
+                        <h3 class="colBrown font-weight-bold my-0">Job Details</h3>
+                        <button class=" darkBtn applyJob" d-id="<?=$jobDetails->job_id?>">Apply </button>
+                     </div>
                       <div class="row mt-3 mx-0 form-group">
                           <div class="col-md-4">
                               <strong><?=$jobDetails->job_title?></strong>

@@ -1,118 +1,17 @@
 <section class="paduj5 backG py-5">
-  <div class="">
-    <div class=" shadow pt-3">
-      <div class=" container-fluid">
-        <div class="row ">
-          <div class="col-md-4">
-            <h4 class="topHH">Search Candidate</h4>
-          </div>
-          <div class="col-md-8">
-          
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php 
-    print_r($userData);
-?>
-<div class=" py-5">
+
+<div class=" py-4 bg-white">
+<div class=" px-3">
+    <h5>Candidates applied for : <strong><?=$jobData[0]->job_title?></strong></h5>
+</div>
+<hr>
     <div class="row ">
-        <div class="col-md-3">
-            <div class="filterCandidate">
-                <div class="mt-4">
-                    <h6>CATEGORIES</h6>
-
-                    <div class="">
-                        <ul class="filterList">
-                            <?php 
-                            foreach($categories as $cate){
-                                
-                                ?>
-                                <li>
-                                    <div class="">
-                                        <input id="'id'<?=$cate->category_id?>" type='checkbox' class="chkBOx" name=""/>
-                                        <label for="'id'<?=$a?>">
-                                            <span></span>
-                                            <?=$cate->category_name?>
-                                        </label>
-                                    </div>
-                                    <span class="fnt14">(<?=$cate->total?>)</span>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-5">
-                    <h6>PACKAGE</h6>
-
-                    <div class="">
-                        <ul class="filterList">
-                            <?php for($a=0; $a <5; $a++){?>
-                                <li>
-                                    <div class="">
-                                        <input id="'pack'<?=$a?>" type='checkbox' class="chkBOx" name=""/>
-                                        <label for="'pack'<?=$a?>">
-                                            <span></span>
-                                            &#8377; 0 - &#8377; 2222  
-                                        </label>
-                                    </div>
-                                    <span class="fnt14">(23)</span>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-5">
-                    <h6>SPECIALITY</h6>
-
-                    <div class="">
-                        <ul class="filterList">
-                            <?php for($a=0; $a <5; $a++){?>
-                                <li>
-                                    <div class="">
-                                        <input id="'spec'<?=$a?>" type='checkbox' class="chkBOx" name=""/>
-                                        <label for="'spec'<?=$a?>">
-                                            <span></span>
-                                        Computer Operator
-                                        </label>
-                                    </div>
-                                    <span class="fnt14">(23)</span>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="row mx-0">
-                <div class="col-md-6">
-                    <div class="position-relative">
-                        <input type="text" placeholder="Name" name="name" class="inspt form-control">
-                        <span class="placeMark"><i class="far fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="position-relative">
-                        <input type="text" placeholder="Location" name="location" class="inspt form-control">
-                        <span class="placeMark"><i class="fas fa-map-marker-alt"></i></span>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="">
-                        <button class="w-100 darkBtn pad133"><span class="mr-1"><i class="fas fa-search"></i></span>Search</button>
-                    </div>
-                </div>
-            </div>
-            <?php 
-                // foreach ($usersData as $usr) {
-                //     print_r($usr);
-                // }
-            ?>
+    
+        <div class="col-md-12">
+   
             <div class="row mx-0">
                 <?php   
-              
+                //   print_r($usersData);
                     foreach ($usersData as $usr) {
                       
                       ?>
@@ -120,11 +19,11 @@
                             <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3">
                                 <div class="candidate_profile shadow">
                                     <div class="">
-                                        <img src="<?=base_url()?>assets/UserImages/profile_picture/<?=$usr['details']->profile_pic?>" class="img-fluid w-100 h200" alt="Candidate Image">
+                                        <img src="<?=base_url()?>assets/UserImages/profile_picture/<?=$usr['details']->profile_pic?>" class="img-fluid w-100 h250" alt="Candidate Image">
                                     </div>
                                     <div class="saplCandidate">
                                         <div class="dsp_P border-bottom">
-                                            <a href="<?=base_url('Employer-User-Profile/'.$usr['details']->uid)?>"  target="_blank " class="colBrown">
+                                            <a href="<?=base_url('Employer-User-Profile/'.$usr['details']->user_id)?>" target="_blank " class="colBrown">
                                                 <span><strong><?=ucwords($usr['details']->fullname)?></strong> </span>
                                             </a>
                                           
@@ -140,8 +39,12 @@
                                             </p>
                                         </div>
                                         <div class="dsp_P">
-                                            <a type="button" href="<?=base_url()?>assets/user_resume/<?=$usr['details']->resume_path?>" class="darkBtn" download> 
-                                            <i class="fa fa-download"></i> Resume</a>
+                                            <?php
+                                                if($usr['details']->resume_path){ ?>
+                                                    <a type="button" href="<?=base_url()?>assets/user_resume/<?=$usr['details']->resume_path?>" class="darkBtn" download> 
+                                                    <i class="fa fa-download"></i> Resume</a>
+                                            <?php    }
+                                            ?>
                                             <ul class="employer_work_contact">
                                                 <li class= " mr-1"><a href="tel:<?=$usr['details']->phone_?>"  class="darkBtn"><i class="fa fa-phone"></i></a></li>
                                                 <li class=""><a href="mailto: <?=$usr['details']->email?>" class="darkBtn"><i class="fa fa-envelope"></i></a></li>
@@ -163,6 +66,9 @@
 </div>
 </section>
 <style>
+.h250 {
+    height: 250px;
+}
     .filterCandidate{
         background:white;
         padding: 25px;

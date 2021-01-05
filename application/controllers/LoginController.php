@@ -139,7 +139,7 @@
 			if($decryptPwd==$pwd){
 				echo 'Password Matched.'; 
 				$this->session->set_userdata('companySession',serialize($res));
-				redirect('Employee-Dashboard');
+				redirect('Employer-Dashboard');
 			}else{
 				echo 'Password Not Match.';
 				$this->session->set_flashdata('err','Invalid Password');

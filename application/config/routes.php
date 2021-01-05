@@ -86,7 +86,9 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['Employer-SignUp'] = 'LoginController/companyRegistrationPage';
 	$route['Employer-Dashboard'] = 'CompanyAdmin/dashboard';
 	$route['Employer-Post-Job'] = 'CompanyAdmin/PostNewJobs';
+	$route['Employer-Edit-Job/(:any)'] = 'CompanyAdmin/UpdatePostJob/$1';
 	$route['Employer-Post-Walkin'] = 'CompanyAdmin/PostWalkInJobs';
+	$route['Employer-Manage-jobs'] = 'CompanyAdmin/ManageJobs';
 	$route['Employer-Candidate'] = 'CompanyAdmin/CandidateSearch';
 
 	$route['Employer-Email-Template'] = 'CompanyAdmin/EmailTemplate';
@@ -94,7 +96,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 	$route['Employee-Log-out'] = 'LoginController/companylogout';
 
-
+	$route['Employer-Applied-Candidates/(:any)'] = 'CompanyAdmin/fetchAppliedCandidates/$1';
+	$route['Employer-User-Profile/(:any)'] = 'CompanyAdmin/fetchUserDataProfile/$1';
 //Company Routes
 	$route['Agency-Login'] = 'LoginController/companyLoginPage';
 	$route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';

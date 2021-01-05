@@ -42,7 +42,7 @@
                         var div='';
                         div+='<div class="JObsList">';
                         div+='<div class="dsp_P">';
-                        div+='<a href="'+url+jobDetails.job_id+'"><h6>'+jobDetails.job_title+' </h6></a>';
+                        div+='<a target="_blank"  href="'+url+jobDetails.job_id+'"><h6>'+jobDetails.job_title+' </h6></a>';
                         div+='<div class="">';
                         div+='<span class="mr-4 bookmarkIcon pointer saved_jobs" d-id="'+jobDetails.job_id+'"><i class="fas fa-bookmark"></i></span>';
                         div+='<small>'+jobDetails.adde_on+'</small>';
@@ -334,7 +334,7 @@
                                     
                                     <div class="JObsList">
                                         <div class="dsp_P">
-                                            <a href="<?=base_url('UserPanel/jobDetails/').$svd_job['svd_details']->job_id?>"><h6><?=ucwords($svd_job['svd_details']->job_title)?> </h6></a>
+                                            <a target="_blank" href="<?=base_url('UserPanel/jobDetails/').$svd_job['svd_details']->job_id?>"><h6><?=ucwords($svd_job['svd_details']->job_title)?> </h6></a>
                                             <div class="">
                                                 <span class="mr-4 bookmarkIcon pointer saved_jobs" d-id="<?=$svd_job['svd_details']->job_id?>"><i class="fas fa-bookmark"></i></span>
                                                 <small><?=date('d-m-Y',strtotime($svd_job['svd_details']->adde_on))?></small>

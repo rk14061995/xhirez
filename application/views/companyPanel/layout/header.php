@@ -54,11 +54,11 @@
                                     <a href="<?=base_url("Employer-Post-Walkin")?>" class="dropdown-item" > Post Walkin Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="<?=base_url("CompanyAdmin/ManageJobs")?>" class="dropdown-item" > Manage Jobs</a>
+                                    <a href="<?=base_url("Employer-Manage-jobs")?>" class="dropdown-item" > Manage Jobs</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Email/ SMS</a>
                             <ul class="dropdown-menu dropMenu py-0">
                                 <li>
@@ -67,9 +67,9 @@
                                 <li>
                                     <a href="<?=base_url("Employer-Manage-Email")?>" class="dropdown-item" > Manage Email Template</a>
                                 </li>
-                                <!-- {/* <li><a to="/company-panel/manage-jobs" class="dropdown-item" > Email Dashboard</a></li> */} -->
+                               
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item ">
                             <a class="nav-link active" href="<?=base_url("Employer-Candidate")?>">Candidate Search </a>
                         </li>
@@ -82,10 +82,10 @@
                                 </a>
                                 <ul class="dropdown-menu dropMenu userDrop py-0">
                                 <li><a class="dropdown-item" href="#"> My Contact Details</a></li>
-                                    <li><a to="" class="dropdown-item" > My Recent Jobs</a></li>
-                                    <li><a to="" class="dropdown-item" > My Recent Searches</a></li>
-                                    <li><a to="" class="dropdown-item" > Change Password</a></li>
-                                    <li><a to="" class="dropdown-item" > Logout</a></li>
+                                    <li><a href="" class="dropdown-item" > My Recent Jobs</a></li>
+                                    <li><a href="" class="dropdown-item" > My Recent Searches</a></li>
+                                    <li><a href="" class="dropdown-item" > Change Password</a></li>
+                                    <li><a href="" class="dropdown-item" > Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

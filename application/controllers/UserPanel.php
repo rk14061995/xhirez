@@ -68,7 +68,7 @@ class UserPanel extends CI_Controller{
  				->join('company_','company_.company_id=jobs_added.added_by_company_id')
  				->order_by('jobs_added.job_id','desc')->limit(5)->get('jobs_added')->result();
 		// print_r($data['latest_jobs']);
- 		$latestResume=$this->db->where('user_id',$user_id)->order_by('resume_id',desc)->get('resume_upload')->row();
+ 		$latestResume=$this->db->where('user_id',$user_id)->order_by('resume_id','desc')->get('resume_upload')->row();
  		$data['resumePath']=$latestResume->resume_path;
  		// $data['resumePath']=>this
  		$this->load->view('userPanel/layout/header',$data);
@@ -137,7 +137,8 @@ class UserPanel extends CI_Controller{
 		$userDetail=$this->session->userdata('jobSeekerSession');
 		$userDetail=unserialize($userDetail); 
 
-		$user_id=$jobSeekerData[0]->user_id;
+		// $user_id=$jobSeekerData[0]->user_id;
+		$user_id=$userDetail[0]->user_id;
 		$data['jobSeekerDetail']=$this->db->where('user_id',$userDetail[0]->user_id)->get('user_')->row();
 		$data['userDetails']=$userDetail;
 		$data['workSummary']=$this->db->where('user_id',$userDetail[0]->user_id)->order_by('summ_id','desc')->get('user_work_summary')->result();
@@ -153,7 +154,7 @@ class UserPanel extends CI_Controller{
 		}
 		$data['skill_s']=$skills;
 		$data['myResume']=$this->db->join('user_','user_.resume_id=resume_upload.resume_id')->where('user_.user_id',$userDetail[0]->user_id)->get('resume_upload')->row();
-		$latestResume=$this->db->where('user_id',$userDetail[0]->user_id)->order_by('resume_id',desc)->get('resume_upload')->row();
+		$latestResume=$this->db->where('user_id',$userDetail[0]->user_id)->order_by('resume_id','desc')->get('resume_upload')->row();
  		$data['resumePath']=$latestResume->resume_path;
 		// $this->db->get()->result();
 		$this->load->view('userPanel/layout/header');

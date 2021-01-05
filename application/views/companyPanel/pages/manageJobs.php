@@ -25,6 +25,11 @@
                                     </nav>
                                     <div class="tab-content boes w-100" id="nav-tabContent"> 
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <?php 
+                                         //   print_r($jobs) 
+                                        
+                                        ?>
+                                            
                                             <div class="p-2 mt-4">
                                                 <div class="Piauj">
                                                     <div class="posu">
@@ -69,55 +74,76 @@
                                                             <th>Job Details  </th>
                                                             <th>Applicants</th>
                                                             <th>Status</th>
-                                                            <th>Available Actions</th>
+                                                            <th class="text-center">Available Actions</th>
+                                                            <th></th>
                                                             <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <span>20 Oct 2020</span> <br/>
-                                                                <small>by mihr_1</small><br/>
-                                                                <span><strong>Views: </strong><span>28</span></span>
-                                                            </td>
-                            
-                                                            <td>
-                                                                <a to="/company-panel/job-description" ><h6 class="colBl  mb-0">Hiring for Java full Stack Developer II Bangalore II Exp min 5 years </h6></a>
-                                                                <small>Bangalore</small>
-                                                                <div class="mt-3">
-                                                                    <a href="">View</a><span class="ml-1">Auto matches</span>
-                                                                </div>
-                                                            </td>
-                            
-                                                            <td>
-                                                                <a href="">4</a>
-                                                                <span class="ml-1">Shine</span>
-                                                            </td>
-                                                            <td>
-                                                                <span>Published</span><br/>
-                                                                <small class="ml-1">20 Oct 2020</small>
-                                                            </td>
-                                                            <td>
-                                                            <div class="">
-                                                                <span><span><i class="fas fa-bookmark"></i></span><span class="ml-1">Republish</span></span>
-                                                                <span class="ml-2"><span><i class="far fa-clipboard"></i></span><span class="ml-1">Copy</span></span>
-                                                                <span class="ml-2"><span><i class="fa fa-share" aria-hidden="true"></i></span><span class="ml-1">Share</span></span>
-                                                                <span class="ml-2">
+                                                       <?php 
+                                                    //    print_r($jobs);
+
+                                                        foreach($jobs as $jobsDetails){ 
+                                                            $date = date("d M Y", strtotime($jobsDetails->adde_on) );
+                                                            ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <span><?= $date ?></span> <br/>
+                                                                    <!-- <small>by mihr_1</small><br/> -->
+                                                                    <span><strong>Views: </strong><span>28</span></span>
+                                                                </td>
+                                
+                                                                <td>
+                                                                    <a to="/company-panel/job-description" ><h6 class="colBl  mb-0"><?=$jobsDetails->job_title?> </h6></a>
+                                                                    <small><?=$jobsDetails->job_location_?> </small>
+                                                                    <!-- <div class="mt-1">
+                                                                        <a href="">View</a><span class="ml-1">Auto matches</span>
+                                                                    </div> -->
+                                                                </td>
+                                
+                                                                <td>
+                                                                <?php if($jobsDetails->applied > 0){ ?>
+                                                                    <span class="ml-1"><a href="<?=base_url('Employer-Applied-Candidates/'.$jobsDetails->job_id)?>"><?=$jobsDetails->applied?> Applicants</a> </span>
+
+                                                                <?php }else{ ?>
+                                                                        <span class="ml-1">0 Applicants</span>
+                                                               <?php } ?>
                                                                     
-                                                                    </span>
-                                                            </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="dropdown">
-                                                                    <span class="dropbtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
-                                                                    <div class="dropdown-content">
-                                                                        <a href="#">Expire</a>
+                                                                    <!-- <span class="ml-1">Shine</span> -->
+                                                                </td>
+                                                                <td>
+                                                                    <span>Published</span><br/>
+                                                                    <small class="ml-1"><?= $date ?></small>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-center">
+                                                                    
+                                                                        <a class="pointer " href="<?=base_url('Employer-Edit-Job/'.$jobsDetails->job_id)?>" title="Edit"><span><i class="fas fa-edit"></i></span></a>
                                                                         
+                                                                        <span class="ml-2" title="Delete"><a href="javascript:void(0) " class="deleteJob" idd="<?=$jobsDetails->job_id?>"><i class="fas fa-trash-alt"></i></a></span>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
+                                                                </td>
+                                                                <td>
+                                                                    <?php 
+                                                                        $clas= 'text-success';
+                                                                        $claNam = 'Activated';
+                                                                        if($jobsDetails->job_apps_status == 'deactive'){
+                                                                            $clas= 'text-danger';
+                                                                            $claNam = 'Deactivated';
+                                                                        }
+                                                                    ?>
+                                                                    <span class="pointer checkStatus" stat="<?=$jobsDetails->job_apps_status?>" idd="<?=$jobsDetails->job_id?>"><strong class="ml-1 <?=$clas?>"><?=$claNam?></strong></span>
+                                                                  
+                                                                </td>
+                                                               
+                                                            </tr>
+
+                                                        <?php   }     
+
+                                                        ?>
+
+
+                                                        <!-- <tr>
                                                             <td>
                                                                 <span>20 Oct 2020</span> <br/>
                                                                 <small>by mihr_1</small><br/>
@@ -159,7 +185,7 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                        </tr>
+                                                        </tr> -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -219,3 +245,69 @@
                     </div>
              </section>   
          </section> 
+         <script type="text/javascript">
+  $(document).on('click','.checkStatus',function(e){
+    e.preventDefault();
+    var ele =$(this);
+    var stat=$(this).attr("stat");
+    var job_id = $(this).attr("idd");
+      $.ajax({
+        url:"<?=base_url('CompanyAdmin/changeJobStatus')?>",
+         type:"post",
+         catche:false,
+         data:{
+             job_id:job_id
+         },
+         success:function(response){
+            var obj=JSON.parse(response);
+            console.log(obj.status);
+            if(obj.status==0){
+                swal("Job!", "Try Again", "error")
+            }
+            if(obj.status==1){
+              //  swal("Job!", "Status Changed", "success");
+                if(stat=='active'){
+                    ele.attr('stat','deactive');
+                    ele.find('strong').removeClass('text-success');
+                    ele.find('strong').addClass('text-danger');
+                    ele.find('strong').html('Deactivated')
+                }else{
+                    ele.attr('stat','active');
+                    ele.find('strong').addClass('text-success');
+                    ele.find('strong').removeClass('text-danger');
+                    ele.find('strong').html('Activated');
+                }
+                //swal("Job!", "Status Changed", "success");
+            }
+           
+        }
+      });  
+  });
+
+  $(document).on('click','.deleteJob',function(e){
+    e.preventDefault();
+    var ele=$(this);
+     var job_id = $(this).attr("idd");
+      $.ajax({
+        url:"<?=base_url('CompanyAdmin/deleteJob')?>",
+         type:"post",
+         catche:false,
+         data:{
+             job_id:job_id
+         },
+         success:function(response){
+            var obj=JSON.parse(response);
+            console.log(obj.status);
+            if(obj.status==0){
+                swal("Job!", "Try Again", "error")
+            }
+            if(obj.status==1){
+                ele.parent().parent().parent().parent().remove();
+              swal("Job!", "Deleted", "success");
+                
+            }
+           
+        }
+      });  
+  });
+</script>

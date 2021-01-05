@@ -26,7 +26,7 @@ class Admin_Dashboard extends CI_Controller
 	{ 		
        
 		 $this->load->view('admin/Layout/header');
-		 $this->load->view('admin/Pages/add_JobSeeker',$data);
+		 $this->load->view('admin/Pages/add_JobSeeker');
 		 $this->load->view('admin/Layout/footer');
 	}
 	public function viewJobSeeker()
