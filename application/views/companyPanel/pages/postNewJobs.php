@@ -1,26 +1,26 @@
   <section class="paduj5">
-             <section class="py-5">
-             <div class=" shadow pt-3">
-      <div class=" container">
-        <div class="row ">
-          <div class="col-md-4">
-            <h4 class="topHH">Post Job
+    <section class="py-5">
+        <div class=" shadow pt-3">
+          <div class=" container">
+            <div class="row ">
+              <div class="col-md-4">
+                <h4 class="topHH">Post Job
 
-            <?php
-              $companuSession = unserialize($this->session->userdata('companySession'));
-              // print_r($companuSession);
-            ?>
-            </h4>
-          </div>
-          <div class="col-md-8">
-            <div class="text-right">
-                <button class="btnTo">Post a walk-in</button>
-                <button class="btnTo ml-2">Manage Jobs</button>
+                <?php
+                  $companuSession = unserialize($this->session->userdata('companySession'));
+                  // print_r($companuSession);
+                ?>
+                </h4>
+              </div>
+              <div class="col-md-8">
+                <div class="text-right">
+                    <button class="btnTo">Post a walk-in</button>
+                    <button class="btnTo ml-2">Manage Jobs</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
    	<div class="">
         <div class="">
      

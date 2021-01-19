@@ -33,6 +33,7 @@ class CompanyAdmin_model extends CI_Model
         $this->db->where('jobs_added.added_by_company_id',$comp_id);
         $this->db->join('job_application','job_application.job_post_id = jobs_added.job_id','left');
         $this->db->group_by('jobs_added.job_id'); 
+        $this->db->order_by("job_id", "desc");
       return  $this->db->get('jobs_added')->result();
     }
 
@@ -118,6 +119,13 @@ class CompanyAdmin_model extends CI_Model
          }
          return $jobArray;
      }
+
+     public function updateCompanyDetails($data,$comp_id){
+            $this->db->where('company_id',$comp_id);
+            return $this->db->update('company_',$data);
+     }
+
+
 }
 
 ?>

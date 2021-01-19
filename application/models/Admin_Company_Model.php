@@ -117,5 +117,9 @@ class Admin_Company_Model extends CI_Model
 			return 2;
 	    }
 	 }
+	 public function updateCompanyType($data,$c_type_id){
+		 $this->db->where('c_type_id',$c_type_id);
+		 return $this->db->update('plan_type',$data);
+	 }
 
 } ?>
