@@ -2,7 +2,7 @@
 	/**
 	 * 
 	 */
-	class Company extends CI_Controller	{
+	class Agency extends CI_Controller	{
 		
 		function __construct()
 		{
@@ -11,25 +11,25 @@
 				redirect('CompLogin');
 			}	
 		}
-		// public function index(){
-		// 	$this->load->view('company/pages/login');
-		// 	// $this->load->view('company/layout/header');
-		// 	// $this->load->view('company/pages/index');
-		// 	// $this->load->view('company/layout/footer');
-		// }
+		public function buyCoin(){
+			// $this->load->view('company/pages/login');
+			$this->load->view('company/layout/header');
+			$this->load->view('company/pages/buyCoins');
+			$this->load->view('company/layout/footer');
+		}
 		public function dashboard(){
 						// $this->load->view('company/pages/login');
 			$compData=unserialize($this->session->userdata('logged_company'));
-			$company_id=$compData[0]->company_id;
+			$agency_id=$compData[0]->agency_id;
 			$data['jobsPosted']=$this->db->where('added_by_company_id',$company_id)->get('jobs_added')->result();
-			$rej=array("applied_by"=>$company_id,"app_status"=>"Rejected");
-			$accp=array("applied_by"=>$company_id,"app_status"=>"Accepted");
+			$rej=array("applied_by"=>$agency_id,"app_status"=>"Rejected");
+			$accp=array("applied_by"=>$agency_id,"app_status"=>"Accepted");
 
 			$data['jobsApplication_rej']=$this->db->where($rej)->get('job_application')->result();
 			$data['jobsApplication_acp']=$this->db->where($accp)->get('job_application')->result();
-			$data['jobsApplication']=$this->db->where('applied_by',$company_id)->get('job_application')->result();
+			$data['jobsApplication']=$this->db->where('applied_by',$agency_id)->get('job_application')->result();
 			
-			$data['compData']=$this->db->where('company_id',$company_id)->get('company_')->result();
+			$data['compData']=$this->db->where('agency_id',$agency_id)->get('agency_')->result();
 			$this->load->view('company/layout/header');
 			$this->load->view('company/pages/index',$data);
 			$this->load->view('company/layout/footer');
@@ -38,7 +38,7 @@
 		public function logOut(){
 			// $this->session->unset('logged_company');
 			$this->session->unset_userdata('logged_company');
-			redirect('CompLogin');
+			redirect('Agency-Login');
 			// $this->load->view('company/layout/header');
 			// $this->load->view('company/pages/company_details');
 			// $this->load->view('company/layout/footer');
@@ -75,7 +75,12 @@
 		public function postedJobs(){
 			$compData=unserialize($this->session->userdata('logged_company'));
 			$company_id=$compData[0]->company_id;
-			$data['postedJobs']=$this->db->join('job_category','job_category.category_id=jobs_added.job_category')->join('job_type','job_type.type_id=jobs_added.job_type')->where('jobs_added.added_by_company_id',$company_id)->order_by('jobs_added.job_id','desc')->get('jobs_added')->result();
+			$data['postedJobs']=$this->db
+							->join('job_category','job_category.category_id=jobs_added.job_category')
+							->join('job_type','job_type.type_id=jobs_added.job_type')
+							// ->where('jobs_added.added_by_company_id',$company_id)
+							->order_by('jobs_added.job_id','desc')
+							->get('jobs_added')->result();
 			$this->load->view('company/layout/header');
 			$this->load->view('company/pages/posted_jobs',$data);
 			$this->load->view('company/layout/footer');

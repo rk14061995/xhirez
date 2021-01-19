@@ -52,14 +52,14 @@
                             <div class="col-md-10">
                                 <ul class="list-unstyled List_p">
                                     <li>
-                                        <a href="" to="/for-business"> Business</a>
+                                        <a href="<?=base_url('Employer-Login')?>" to="/for-business"> Employer</a>
                                     </li>
                                     <li>
-                                        <a href="" to="/for-staffing-agencies"> Staffing Agencies</a>
+                                        <a href="<?=base_url('Agency-Login')?>"> Staffing Agencies</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="" to="/login">Job Seeker</a>
-                                    </li>
+                                    </li> -->
                                     <!-- <li>
                                         <a href="" to="">Blog</a>
                                     </li>   -->

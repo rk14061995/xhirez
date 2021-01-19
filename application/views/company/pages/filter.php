@@ -4,7 +4,7 @@
  <div class="container-fluid">
  	<div class="card shadow mb-4">
 	    <div class="card-body">
-	      	<form class="" action="<?=base_url('Company/filterResumes')?>" method="post">
+	      	<form class="" action="<?=base_url('Agency/filterResumes')?>" method="post">
 		 		
 	      		<div class="form-group row text-center">
 		 			<!-- <div class="col-md-3">

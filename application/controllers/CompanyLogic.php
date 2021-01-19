@@ -57,13 +57,13 @@
 			// `company_`(`company_id`, `company_name`, `comp_phone`, `comp_desc`, `comp_address`, `website_url`, `company_email`, `company_pwd`, `company_logo`, `company_reg_no`, `reg_on`)
 			
 		    $data=array(
-		    				"company_name"=>$this->input->post('comp_name'),
-		    				"comp_phone"=>$this->input->post('comp_phone'),
-		    				"comp_desc"=>$this->input->post('comp_desc'),
-		    				"comp_address"=>$this->input->post('comp_address'),
+		    				"agency_name"=>$this->input->post('comp_name'),
+		    				"agency_phone"=>$this->input->post('comp_phone'),
+		    				"agency_desc"=>$this->input->post('comp_desc'),
+		    				"agency_address"=>$this->input->post('comp_address'),
 		    				"website_url"=>$this->input->post('comp_website'),
-		    				"company_email"=>$this->input->post('comp_email'),
-		    				"company_reg_no"=>$this->input->post('comp_reg'),
+		    				"agency_email"=>$this->input->post('comp_email'),
+		    				"agency_reg_no"=>$this->input->post('comp_reg'),
 
 		    			);
 		    
@@ -71,8 +71,8 @@
 		}
 		public function updateDetail($data){
 			$compData=unserialize($this->session->userdata('logged_company'));
-			$company_id=$compData[0]->company_id;
-			if($this->db->where('company_id',$company_id)->update('company_',$data)){
+			$agency_id=$compData[0]->agency_id;
+			if($this->db->where('agency_id',$agency_id)->update('agency_',$data)){
 				return 1;
 			}else{
 				return 0;

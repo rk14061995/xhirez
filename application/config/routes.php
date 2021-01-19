@@ -102,8 +102,14 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['Employee-Company-Details'] = 'CompanyAdmin/companyDetails';
 
 //Company Routes
-	$route['Agency-Login'] = 'LoginController/companyLoginPage';
-	$route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';
+	// $route['Agency-Login'] = 'LoginController/companyLoginPage';
+	// $route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';
+
+
+//Agency Routes
+	$route['Agency-Login'] = 'CompLogin';
+	// CompLogin
+	
 // ----------API-------------
 
 $route['jobPosted'] = 'Admin_Job/addJobPosted';
