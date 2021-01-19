@@ -93,13 +93,13 @@
           <div class="col-lg-5 d-none d-lg-block ">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Company Logo</h1>
+                <h1 class="h4 text-gray-900 mb-4">Agency Logo</h1>
                 <hr>
               </div>
               <form class="user" id="compLogo">
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3 mb-sm-0">
-                   <img src="<?=base_url('assets/companyImages/logo/').$compData[0]->company_logo?>" width="50%" onerror='this.src="<?=base_url('assets/companyImages/logo/default.png')?>"'>
+                   <img src="<?=base_url('assets/companyImages/logo/').$compData[0]->agency_logo?>" width="50%" onerror='this.src="<?=base_url('assets/companyImages/logo/default.png')?>"'>
                   </div>
 
                 </div>
@@ -122,22 +122,22 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Company Details</h1>
+                <h1 class="h4 text-gray-900 mb-4">Agency Details</h1>
                 <hr>
               </div>
               <form class="user" id="compDetail">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Company Name" name="comp_name" value="<?=$compData[0]->company_name?>">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Agency Name" name="comp_name" value="<?=$compData[0]->agency_name?>">
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Phone Number" name="comp_phone" value="<?=$compData[0]->comp_phone?>">
+                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Phone Number" name="comp_phone" value="<?=$compData[0]->agency_phone?>">
                   </div>
                   
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                   <input type="email" name="comp_email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Company Email Address" value="<?=$compData[0]->company_email?>" readonly>
+                   <input type="email" name="comp_email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Agency Email Address" value="<?=$compData[0]->agency_email?>" readonly>
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Company URL" name="comp_website" value="<?=$compData[0]->website_url?>">
@@ -147,8 +147,8 @@
                 <div class="form-group row">
                   
                   <div class="col-sm-12">
-                    <label>Company Description</label>
-                    <textarea class="form-control form-control-user"  rows="5" name="comp_desc"><?=$compData[0]->comp_desc?></textarea>
+                    <label>Agency Description</label>
+                    <textarea class="form-control form-control-user"  rows="5" name="comp_desc"><?=$compData[0]->agency_desc?></textarea>
                     
                   </div>
                 </div>
@@ -156,15 +156,15 @@
                 <div class="form-group row">
                   
                   <div class="col-sm-12">
-                    <label>Company Address</label>
-                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_address" value="<?=$compData[0]->comp_address?>">
+                    <label>Agency Address</label>
+                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Agency Address" name="comp_address" value="<?=$compData[0]->agency_address?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   
                   <div class="col-sm-12">
-                    <label>Company Registratio Number</label>
-                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_reg" value="<?=$compData[0]->company_reg_no?>">
+                    <label>Agency Registratio Number</label>
+                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Company Address" name="comp_reg" value="<?=$compData[0]->agency_reg_no?>">
                   </div>
                 </div>
                 <input type="submit" name="" value="Update Account" class="btn btn-primary btn-user btn-block">

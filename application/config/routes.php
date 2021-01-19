@@ -99,8 +99,14 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['Employer-Applied-Candidates/(:any)'] = 'CompanyAdmin/fetchAppliedCandidates/$1';
 	$route['Employer-User-Profile/(:any)'] = 'CompanyAdmin/fetchUserDataProfile/$1';
 //Company Routes
-	$route['Agency-Login'] = 'LoginController/companyLoginPage';
-	$route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';
+	// $route['Agency-Login'] = 'LoginController/companyLoginPage';
+	// $route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';
+
+
+//Agency Routes
+	$route['Agency-Login'] = 'CompLogin';
+	// CompLogin
+	
 // ----------API-------------
 
 $route['jobPosted'] = 'Admin_Job/addJobPosted';

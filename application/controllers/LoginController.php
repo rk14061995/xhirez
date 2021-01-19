@@ -12,6 +12,11 @@
  		$this->load->model('DatabaseModel','DTB');
 
  	}
+ 	public function agencyLogin(){
+ 		
+ 		$this->load->view('company/pages/login');
+ 		
+ 	}
  	public  function jobseekerloginPage(){
  		$this->load->view('userPanel/pages/userLogin');
  	}

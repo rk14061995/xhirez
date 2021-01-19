@@ -6,36 +6,36 @@
 	{
 		
 		public function index(){
-		    $this->load->view('website/new_/header');
+		    // $this->load->view('website/new_/header');
 			$this->load->view('company/pages/login');
-			$this->load->view('website/new_/footer');
+			// $this->load->view('website/new_/footer');
 			// $this->load->view('company/layout/header');
 			// $this->load->view('company/pages/index');
 			// $this->load->view('company/layout/footer');
 		}
 		public function register()
 		{
-		    $this->load->view('website/new_/header');
+		    // $this->load->view('website/new_/header');
 			$this->load->view('company/pages/register');
-			$this->load->view('website/new_/footer');
+			// $this->load->view('website/new_/footer');
 		}
 		public function forgotPassword(){
 			$this->load->view('company/pages/forgot-password');
 		}
 		public function registerCompany(){
 		    $regData=array(
-		    					"company_name"=>$this->input->post('comp_name'),
-		    					"company_email"=>$this->input->post('comp_email'),
-		    					"comp_phone"=>$this->input->post('comp_phone'),
-		    					"company_pwd"=>$this->input->post('comp_pass'),
+		    					"agency_name"=>$this->input->post('comp_name'),
+		    					"agency_email"=>$this->input->post('comp_email'),
+		    					"agency_phone"=>$this->input->post('comp_phone'),
+		    					"agency_pwd"=>$this->input->post('comp_pass'),
 		    				);
-		    die(json_encode(array("code"=>$this->addNewCompany($regData))));
+		    die(json_encode(array("code"=>$this->addNewAgency($regData))));
 		    
 		}
-		public function addNewCompany($data){
+		public function addNewAgency($data){
 
-			if(count($this->db->where('company_email',$data['company_email'])->get('company_')->result())==0){
-				if($this->db->insert('company_',$data)){
+			if(count($this->db->where('agency_email',$data['agency_email'])->get('agency_')->result())==0){
+				if($this->db->insert('agency_',$data)){
 					return 1;
 				}else{
 					return 0;
@@ -47,13 +47,13 @@
 		public function loginValidate(){
 		
 			$dat=array(
-						"company_email"=>$this->input->post('comp_email'),
-							"company_pwd"=>$this->input->post('comp_pass'),
+						"agency_email"=>$this->input->post('comp_email'),
+							"agency_pwd"=>$this->input->post('comp_pass'),
 						);
-			if(count($compData=$this->db->where($dat)->get('company_')->result())>0){
+			if(count($compData=$this->db->where($dat)->get('agency_')->result())>0){
 				$compData=serialize($compData);
 				$this->session->set_userdata('logged_company',$compData);
-				redirect('Company/dashboard');
+				redirect('Agency/dashboard');
 			}else{
 				$this->session->set_flashdata('msg','Invalid Email/Password');
 				redirect('CompLogin');
