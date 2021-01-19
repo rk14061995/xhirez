@@ -42,7 +42,7 @@
                   
                 </div>
                 <div class="form-group row">
-                  <label>Job Description</label>
+                  <label class="font-weight-bold">Job Description</label>
                   <div class="col-sm-12 mb-3 mb-sm-0">
                     <span>
                       <?=$jobDetail[0]->job_desc?>
@@ -70,7 +70,7 @@
                   </div>
                   <div class="col-md-3">
                     <label>Last Date</label>
-                    <input type="text" name="last_Date" class="form-control " value="<?=date('d-m-Y',strtotime($jobDetail[0]->last_date))?>">
+                    <input type="text" name="last_Date" class="form-control " value="<?=date('d-m-Y',strtotime($jobDetail[0]->last_date))?>" readonly>
                   </div>
                 </div>
                 <div class="form-group row">
