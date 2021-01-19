@@ -47,7 +47,41 @@
  	}
  	public function jobseekerRegistrationPage(){
  		$this->load->view('userPanel/pages/userRegister');
- 	}
+	 }
+	 public function jobseekerRegistration(){
+		$pwdEncyt=$this->encryption->encrypt(trim($_POST['user_pass_code']));
+		$jobSeekerData=array(
+								"fullname"=>$this->input->post('full_name'),
+								"email"=>$this->input->post('email_'),
+								"phone_"=>$this->input->post('phone_no'),
+								"password"=>$pwdEncyt,
+								
+							);
+		// print_r($jobSeekerData);
+		$response=$this->DTB->insertData('user_', $jobSeekerData);
+		switch ($response) {
+			case 0:
+				# code...	
+				$this->session->set_flashdata('msg','Failed To Register');
+				break;
+			case 1:
+				# code...
+				$this->session->set_flashdata('msg','Registered Successfully');
+				break;
+			case 2:
+				# code...
+				$this->session->set_flashdata('msg','Email Id Already Exists');
+				break;
+			
+			default:
+				# code...
+				$this->session->set_flashdata('msg','Server Error');
+				break;
+		}
+		redirect('Employee-Login');
+	}
+	
+
  	public function companyLoginPage(){
 		$this->load->view('companyPanel/pages/companyLogin');
 	}
@@ -61,38 +95,6 @@
 	public function companyRegistrationPage(){
 		$this->load->view('companyPanel/pages/companyRegister');
 	}
- 	public function jobseekerRegistration(){
- 		$pwdEncyt=$this->encryption->encrypt(trim($_POST['user_pass_code']));
- 		$jobSeekerData=array(
- 								"fullname"=>$this->input->post('full_name'),
- 								"email"=>$this->input->post('email_'),
- 								"phone_"=>$this->input->post('phone_no'),
- 								"password"=>$pwdEncyt,
- 								
- 							);
- 		// print_r($jobSeekerData);
- 		$response=$this->DTB->insertData('user_', $jobSeekerData);
- 		switch ($response) {
- 			case 0:
- 				# code...	
- 				$this->session->set_flashdata('msg','Failed To Register');
- 				break;
- 			case 1:
- 				# code...
- 				$this->session->set_flashdata('msg','Registered Successfully');
- 				break;
- 			case 2:
- 				# code...
- 				$this->session->set_flashdata('msg','Email Id Already Exists');
- 				break;
- 			
- 			default:
- 				# code...
- 				$this->session->set_flashdata('msg','Server Error');
- 				break;
- 		}
- 		redirect('Employee-Login');
- 	}
  	
  	public function companyRegistration(){
  		$pwdEncyt=$this->encryption->encrypt(trim($_POST['Pass_code']));
