@@ -11,7 +11,7 @@
 	      			<div class="col-md-4">
 	      				<select class="form-control" name="coin_" id="coin_">
 				 			<option>Select</option>
-				 			<?php for($i=1; $i < 20; $i++): ?>
+				 			<?php for($i=1; $i <= 20; $i++): ?>
 				 				<option value="<?=$i?>"><?=$i?></option>
 				 			<?php endfor; ?>
 				 		</select>

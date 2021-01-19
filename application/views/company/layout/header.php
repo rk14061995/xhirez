@@ -69,12 +69,6 @@
       <div class="sidebar-heading">
         Interface
       </div>
-      <!--  <li class="nav-item">
-        <a class="nav-link" href="<?=base_url('Company/Details')?>">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Company Details</span></a>
-      </li> -->
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url('Agency/postedJobs')?>">
@@ -94,12 +88,6 @@
           <span>Buy Coins</span>
         </a>
       </li>
-    
-       <!--  <li class="nav-item">
-          <a class="nav-link" href="<?=base_url('Agency/jobSeekeers')?>">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Job Seekers</span></a>
-        </li> -->
       <!-- Divider -->
       <hr class="sidebar-divider">
 
