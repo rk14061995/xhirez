@@ -11,12 +11,12 @@
 				redirect('CompLogin');
 			}	
 		}
-		// public function index(){
-		// 	$this->load->view('company/pages/login');
-		// 	// $this->load->view('company/layout/header');
-		// 	// $this->load->view('company/pages/index');
-		// 	// $this->load->view('company/layout/footer');
-		// }
+		public function buyCoin(){
+			// $this->load->view('company/pages/login');
+			$this->load->view('company/layout/header');
+			$this->load->view('company/pages/buyCoins');
+			$this->load->view('company/layout/footer');
+		}
 		public function dashboard(){
 						// $this->load->view('company/pages/login');
 			$compData=unserialize($this->session->userdata('logged_company'));

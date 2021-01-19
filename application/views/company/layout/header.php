@@ -3,7 +3,8 @@
   // print_r($compData);
   $company_name=$compData[0]->agency_name;
   $company_id=$compData[0]->agency_id;
- 
+ $walletBalance_=$this->db->select('wallet_balance')->where('  agency_id',$company_id)->get('agency_wallet')->row();
+ $wBalance=$walletBalance_->wallet_balance;
   $logo_=$this->db->select('company_logo')->where('company_id',$company_id)->get('company_')->row();
   $logo_=$logo_->company_logo;
   // print_r($logo_);
@@ -201,7 +202,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline  small font-weight-bold text-danger">Wallet Balance: &#8377; 1,000</span>
+                <span class="mr-2 d-none d-lg-inline  small font-weight-bold text-danger">Wallet Balance: &#8377; <?=$wBalance?></span>
                 <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
               </a>
               <!-- Dropdown - User Information -->

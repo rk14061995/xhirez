@@ -56,7 +56,7 @@
 				redirect('Agency/dashboard');
 			}else{
 				$this->session->set_flashdata('msg','Invalid Email/Password');
-				redirect('CompLogin');
+				redirect('Agency-Login');
 			}
 		}
 		
