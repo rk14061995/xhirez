@@ -55,7 +55,7 @@ class Website extends CI_Controller{
  		// print_r(expression);
  		$this->load->view('website/Layout/header');
  		$this->load->view('website/webpages/jobSearch',$data);
- 		$this->load->view('website/Layout/header');
+ 		$this->load->view('website/Layout/footer');
 		// print_r($res);
  	}
  	public function getJobDescription($job_post_id){

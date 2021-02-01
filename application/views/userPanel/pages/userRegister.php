@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Job Portal</title>
+    <title>Xhirez</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse bg_white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto maiHead pl-3">
             <li class="nav-item ">
-              <a href="" to="/home" class="nav-link active" href="#">Home </a>
+              <a  class="nav-link active" href="#">Home </a>
             </li>
             <li class="nav-item">
-              <a href="" to="for-business" class="nav-link" href="#"> Business</a>
+              <a  class="nav-link" href="<?=base_url('Employer-Login')?>"> Business</a>
             </li>
               <li class="nav-item">
-              <a href="" to="for-staffing-agencies" class="nav-link" href="#"> Staffing Agencies</a>
+              <a  class="nav-link" href="<?=base_url('Agency-Login')?>"> Staffing Agencies</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('Website/features')?>">Features</a>
@@ -97,7 +97,7 @@
                                                 <input type="password" class="form-control" name="" placeholder="Confirm Password" required/>
                                             </div> -->
                                             <div class=" my-3">
-                                                <input type="checkbox"  /><small class="ml-1">Agree with<a href="" class="adIN"><strong> Terms & Condition</strong></a></small>
+                                                <input type="checkbox"  /><small class="ml-1">I Agree with<a href="" class="adIN"><strong> Terms & Condition</strong></a></small>
                                             </div>
 
                                             <button class="btn w-100 btnbckBlu">Create Account</button>

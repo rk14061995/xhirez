@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Job Portal</title>
+    <title>Xhirez</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse bg_white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto maiHead pl-3">
             <li class="nav-item ">
-              <a href="" to="/home" class="nav-link active" href="#">Home </a>
+              <a href=""class="nav-link active" >Home </a>
             </li>
             <li class="nav-item">
-              <a href="" to="for-business" class="nav-link" href="#"> Business</a>
+              <a  class="nav-link" href="<?=base_url('Employer-Login')?>"> Business</a>
             </li>
               <li class="nav-item">
-              <a href="" to="for-staffing-agencies" class="nav-link" href="#"> Staffing Agencies</a>
+              <a   class="nav-link" href="<?=base_url('Agency-Login')?>"> Staffing Agencies</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('Website/features')?>">Features</a>
@@ -47,12 +47,12 @@
       
           </ul>
           <div class="form-inline my-2 my-lg-0 fnt500">
-           <a href="" class="colGry ">
+           <a href="<?=base_url('Employee-Login')?>" class="colGry ">
               <img src='<?= base_url("assets/images/Login-Icon.png") ?>' class="img-fluid"/>
                 <span class="ml-2">LOGIN</span>
             </a> 
            <span class="mx-1">/</span>
-           <a href="" class="colGry">
+           <a href="<?=base_url('Employee-SignUp')?>" class="colGry">
                <span class="ml-2">REGISTER</span>
             </a>
              

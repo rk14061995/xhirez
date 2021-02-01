@@ -2,7 +2,7 @@
                  <div class="container pt-5">
                     <div class="row fnt14 fnt500 py-4">
                         <div class="col-md-4">
-                            <div class="pt-2">
+                           <!--  <div class="pt-2">
                                 <h6>For Candidates</h6>
 
                                 <ul class="LONpp list-unstyled m-0 mt-3">
@@ -16,10 +16,10 @@
                                     <Link  to="/login" >Submit Resume</Link>
                                 </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-4">
-                            <div class="pt-2">
+                            <!-- <div class="pt-2">
                                 <h6>For Employers</h6>
 
                                 <ul class="LONpp list-unstyled m-0 mt-3">
@@ -33,7 +33,7 @@
                                     <Link  to="/login" >Add Job</Link>
                                 </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                        <!--  <div class="col-md-3">
                             <div class="pt-2">
@@ -63,8 +63,7 @@
                                         <img src='<?=base_url("/assets/images/Location.png")?>' class="img-fluid ht20"/>
                                         </span>
                                         <span class="ml-1">
-                                        214 West Arnold St. New York, NY
-                                        10002
+                                        A-88, Sector-4, Nodia - 201301, Uttara Pradesh
                                         </span>
                                     </div>
                                 </li>
@@ -74,7 +73,7 @@
                                             <img src='<?=base_url("/assets/images/Phone-icon.png")?>' class="img-fluid ht20"/>
                                         </span>
                                         <span class="ml-1">
-                                        (+1)345-6789
+                                        (+91) 9718703762 / (+91)     7011741092
                                         </span>
                                     </div>
                                 </li>
@@ -84,7 +83,7 @@
                                             <img src='<?=base_url("/assets/images/mail-icon.png")?>' class="img-fluid ht20"/>
                                         </span>
                                         <span class="ml-1">
-                                        support@Xhirex.com
+                                        info@Xhirez.com
                                         </span>
                                     </div>
                                 </li>
@@ -95,7 +94,7 @@
                     <hr/>
                     <div class="dsp_P my-4">
                         <div class="">
-                            <small class="colGry mt-1"> &copy; 2020 <span class="colgrn"><a href="" class="colBlu">Xhirex</a> </span>.
+                            <small class="colGry mt-1"> &copy; 2020 <span class="colgrn"><a href="" class="colBlu">Xhirez</a> </span>.
                              All Rights Reserved.</small>
                         </div>
 
