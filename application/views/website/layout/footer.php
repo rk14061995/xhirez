@@ -2,21 +2,22 @@
                  <div class="container pt-5">
                     <div class="row fnt14 fnt500 py-4">
                         <div class="col-md-4">
-                           <!--  <div class="pt-2">
+                            <div class="pt-2">
                                 <h6>For Candidates</h6>
 
                                 <ul class="LONpp list-unstyled m-0 mt-3">
                                 <li>
-                                    <Link  to="/login" >Browse Jobs</Link>
+                                    <a href="<?=base_url('Website/terms')?>">Terms & Condition</a>
+                                    <Link  to="" ></Link>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <Link  to="/login" >Browse Categories</Link>
                                 </li>
                                 <li>
                                     <Link  to="/login" >Submit Resume</Link>
-                                </li>
+                                </li> -->
                                 </ul>
-                            </div> -->
+                            </div> 
                         </div>
                         <div class="col-md-4">
                             <!-- <div class="pt-2">

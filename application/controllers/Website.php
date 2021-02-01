@@ -48,7 +48,12 @@ class Website extends CI_Controller{
  		$this->load->view('website/layout/footer');
  		// $this->load->view('admin/Pages/index');
  		// $this->load->view('Layout/footer');
- 	}
+	 }
+	 public function terms(){
+		$this->load->view('website/layout/header');
+		$this->load->view('website/webpages/terms');
+		$this->load->view('website/layout/footer');
+	 }
  	public function jobsByCategory($category_id){
 		$data['jobs']=$this->DTB->getJobsByCategory($category_id);
  		$data['totaljobs']=$this->DTB->getJobsByCategoryTotal($category_id);
