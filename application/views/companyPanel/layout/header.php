@@ -19,13 +19,14 @@
 <link rel="stylesheet" href='<?=base_url("assets/css/styleset.css")?>'>
 <link rel="stylesheet" href='<?=base_url("assets/css/companyadmin.css")?>'>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> -->
+ <link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet'>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+    <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
         <section class="backPurl ">
            <nav class="navbar navbar-expand-lg navbar-light paduj5">
-                <a href='/' class="navbar-brand W20">
+                <a href='<?=base_url('Employer-Dashboard')?>' class="navbar-brand W20">
                     <img src='<?=base_url("/assets/images/Xhirez-Logo-White.png")?>' class="img-fluid  w_40"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,9 +51,9 @@
                                 <li>
                                     <a href="<?=base_url('Employer-Post-Job')?>" class="dropdown-item" >Post Jobs</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="<?=base_url("Employer-Post-Walkin")?>" class="dropdown-item" > Post Walkin Jobs</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="<?=base_url("Employer-Manage-jobs")?>" class="dropdown-item" > Manage Jobs</a>
                                 </li>
@@ -81,11 +82,11 @@
                                     <img src='<?=base_url("/assets/images/user-dummy.png")?>' class="img-fluid"></img>
                                 </a>
                                 <ul class="dropdown-menu dropMenu userDrop py-0">
-                                <li><a class="dropdown-item" href="#"> My Contact Details</a></li>
+                                <li><a class="dropdown-item" href="<?=base_url('Employee-Company-Details')?>"> My Contact Details</a></li>
                                     <li><a href="" class="dropdown-item" > My Recent Jobs</a></li>
                                     <li><a href="" class="dropdown-item" > My Recent Searches</a></li>
                                     <li><a href="" class="dropdown-item" > Change Password</a></li>
-                                    <li><a href="" class="dropdown-item" > Logout</a></li>
+                                    <li><a href="<?=base_url('Employer-Log-out')?>" class="dropdown-item" > Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

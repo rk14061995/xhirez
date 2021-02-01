@@ -30,7 +30,7 @@
                                         
                                         ?>
                                             
-                                            <div class="p-2 mt-4">
+                                            <!-- <div class="p-2 mt-4">
                                                 <div class="Piauj">
                                                     <div class="posu">
                                                         <input type="text" placeholder="Job title, Id or Ref no." name="" class="form-control"/>
@@ -65,18 +65,18 @@
                                                         <span ><i class="fa fa-search" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="mt-4">
-                                                <table class="table">
+                                                <table class="table" id="manageJobs">
                                                     <thead>
                                                         <tr>
                                                             <th>Creation Date</th>
                                                             <th>Job Details  </th>
                                                             <th>Applicants</th>
                                                             <th>Status</th>
-                                                            <th class="text-center">Available Actions</th>
-                                                            <th></th>
-                                                            <th></th>
+                                                            <th class="text-center"> Actions</th>
+                                                            <th>Available </th>
+                                                         
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -89,27 +89,22 @@
                                                             <tr>
                                                                 <td>
                                                                     <span><?= $date ?></span> <br/>
-                                                                    <!-- <small>by mihr_1</small><br/> -->
                                                                     <span><strong>Views: </strong><span>28</span></span>
                                                                 </td>
                                 
                                                                 <td>
-                                                                    <a to="/company-panel/job-description" ><h6 class="colBl  mb-0"><?=$jobsDetails->job_title?> </h6></a>
+                                                                    <a href="" ><h6 class="colBl  mb-0"><?=$jobsDetails->job_title?> </h6></a>
                                                                     <small><?=$jobsDetails->job_location_?> </small>
-                                                                    <!-- <div class="mt-1">
-                                                                        <a href="">View</a><span class="ml-1">Auto matches</span>
-                                                                    </div> -->
                                                                 </td>
                                 
                                                                 <td>
-                                                                <?php if($jobsDetails->applied > 0){ ?>
-                                                                    <span class="ml-1"><a href="<?=base_url('Employer-Applied-Candidates/'.$jobsDetails->job_id)?>"><?=$jobsDetails->applied?> Applicants</a> </span>
+                                                                    <?php if($jobsDetails->applied > 0){ ?>
+                                                                        <span class="ml-1"><a href="<?=base_url('Employer-Applied-Candidates/'.$jobsDetails->job_id)?>"><?=$jobsDetails->applied?> Applicants</a> </span>
 
-                                                                <?php }else{ ?>
-                                                                        <span class="ml-1">0 Applicants</span>
-                                                               <?php } ?>
-                                                                    
-                                                                    <!-- <span class="ml-1">Shine</span> -->
+                                                                    <?php }else{ ?>
+                                                                            <span class="ml-1">0 Applicants</span>
+                                                                    <?php } ?>
+                                                                   
                                                                 </td>
                                                                 <td>
                                                                     <span>Published</span><br/>
@@ -142,50 +137,6 @@
 
                                                         ?>
 
-
-                                                        <!-- <tr>
-                                                            <td>
-                                                                <span>20 Oct 2020</span> <br/>
-                                                                <small>by mihr_1</small><br/>
-                                                                <span><strong>Views: </strong><span>28</span></span>
-                                                            </td>
-                            
-                                                            <td>
-                                                            <a to="/company-panel/job-description" ><h6 class="colBl  mb-0">Hiring for Java full Stack Developer II Bangalore II Exp min 5 years </h6></a>
-                                                                <small>Bangalore</small>
-                                                                <div class="mt-3">
-                                                                    <a href="">View</a><span class="ml-1">Auto matches</span>
-                                                                </div>
-                                                            </td>
-                            
-                                                            <td>
-                                                                <a href="">4</a>
-                                                                <span class="ml-1">Shine</span>
-                                                            </td>
-                                                            <td>
-                                                                <span>Published</span><br/>
-                                                                <small class="ml-1">20 Oct 2020</small>
-                                                            </td>
-                                                            <td>
-                                                            <div class="">
-                                                                <span><span><i class="fas fa-bookmark"></i></span><span class="ml-1">Republish</span></span>
-                                                                <span class="ml-2"><span><i class="far fa-clipboard"></i></span><span class="ml-1">Copy</span></span>
-                                                                <span class="ml-2"><span><i class="fa fa-share" aria-hidden="true"></i></span><span class="ml-1">Share</span></span>
-                                                                <span class="ml-2">
-                                                                    
-                                                                    </span>
-                                                            </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="dropdown">
-                                                                    <span class="dropbtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
-                                                                    <div class="dropdown-content">
-                                                                        <a href="#">Expire</a>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr> -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -310,4 +261,9 @@
         }
       });  
   });
+</script>
+<script>
+$(document).ready( function () {
+    $('#manageJobs').DataTable();
+} );
 </script>

@@ -596,7 +596,7 @@ class Admin_Company extends CI_Controller
 						'c_type_name'=>$this->input->post('Companytype'),
 						'CompanyCurrecy'=>$this->input->post('CompanyCurrecy'),
 						'CompanyPrice'=>$this->input->post('CompanyPrice'),
-						'CompanyDesc'=>$this->input->post('Companytype')
+						'CompanyDesc'=>$this->input->post('CompanyDesc')
 					);
 		// print_r($data);
 		// 	die;
@@ -623,5 +623,51 @@ class Admin_Company extends CI_Controller
 		 }
 	}
 	
+	public function deletePlan(){
+		$c_type_id = $this->input->post('id');
+		$this->db->where('c_type_id',$c_type_id);
+		$results= $this->db->delete('plan_type');
+		if( $results)
+		 {
+		 	die(json_encode(array('status'=>1)));
+		 }
+		 else
+		 {
+		 	die(json_encode(array('status'=>0)));
+		 }
+	}
 
+	public function fetchType(){
+		$c_type_id = $this->input->post('id');
+		$this->db->where('c_type_id',$c_type_id);
+		$results= $this->db->get('plan_type')->result();
+		if( $results)
+		 {
+		 	die(json_encode(array('status'=>1,'data'=>$results)));
+		 }
+		 else
+		 {
+		 	die(json_encode(array('status'=>0,'data'=>$results)));
+		 }
+	}
+
+	public function updateCompanyType()
+	{
+		$c_type_id = $this->input->post('type_id');
+		$data=array(
+						'c_type_name'=>$this->input->post('Companytype'),
+						'CompanyCurrecy'=>$this->input->post('CompanyCurrecy'),
+						'CompanyPrice'=>$this->input->post('CompanyPrice'),
+						'CompanyDesc'=>$this->input->post('CompanyDescription')
+					);
+		// print_r($data);
+		// 	die;
+			$results=$this->Admin_Com->updateCompanyType($data,$c_type_id);
+			if($results){
+				die(json_encode(array('status'=>1,'data'=>$results)));
+			}
+			else{
+				die(json_encode(array('status'=>0,'data'=>$results)));
+			}
+	}
 }

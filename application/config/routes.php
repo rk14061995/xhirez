@@ -95,10 +95,13 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['Employer-Email-Template'] = 'CompanyAdmin/EmailTemplate';
 	$route['Employer-Manage-Email'] = 'CompanyAdmin/ManageEmails';
 
-	$route['Employee-Log-out'] = 'LoginController/companylogout';
+	$route['Employer-Log-out'] = 'LoginController/companylogout';
 
 	$route['Employer-Applied-Candidates/(:any)'] = 'CompanyAdmin/fetchAppliedCandidates/$1';
 	$route['Employer-User-Profile/(:any)'] = 'CompanyAdmin/fetchUserDataProfile/$1';
+
+	$route['Employee-Company-Details'] = 'CompanyAdmin/companyDetails';
+
 //Company Routes
 	// $route['Agency-Login'] = 'LoginController/companyLoginPage';
 	// $route['Agency-SignUp'] = 'LoginController/companyRegistrationPage';

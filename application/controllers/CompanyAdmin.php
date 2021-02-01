@@ -9,7 +9,12 @@ function __construct(){
 
 	public function dashboard(){
  		// print_r($this->session->userdata('login'));
- 		$data['companySession']=unserialize($this->session->userdata('companySession'));
+		 $data['companySession']=unserialize($this->session->userdata('companySession'));
+		 $userSession=unserialize($this->session->userdata('companySession'));
+		 //print_r($userSession);
+		  $comp_id =  $userSession[0]->company_id;
+		  $data['jobs'] = $this->CAM->fetchJobs($comp_id);
+ 
  		$this->load->view('companyPanel/layout/header',$data);
  		$this->load->view('companyPanel/pages/dashboard');
  		$this->load->view('companyPanel/layout/footer');
@@ -201,6 +206,186 @@ function __construct(){
 		$this->load->view('companyPanel/layout/header');
         $this->load->view('companyPanel/pages/user_profile',$data);
         $this->load->view('companyPanel/layout/footer');
+	}
+
+	public function companyDetails(){
+		$result = unserialize($this->session->userdata('companySession'));
+		$comp_id= $result[0]->company_id; 
+		$this->db->where('company_id',$comp_id);
+
+		$data['companyData']= $this->db->get('company_')->result();
+		$this->load->view('companyPanel/layout/header');
+        $this->load->view('companyPanel/pages/company_details',$data);
+        $this->load->view('companyPanel/layout/footer');
+	}
+
+	public function updateCompanyDetails(){
+		$comp_id = $this->input->post('comp_id');
+
+		$this->db->where('company_id',$comp_id);
+		$result = $this->db->get('company_')->result();
+		if(!empty($_FILES['Incorpfile']['name']))
+	    	{   
+
+	    		$iconfigFileDeatils=pathinfo($_FILES['Incorpfile']['name']);
+                $configg['upload_path'] = 'assets/company_assets/company_Incorporation/';
+                $configg['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx';
+                $configg['file_name'] = 'IncorProfile-'.date('d-m-y-h-i-s').'-Image.'.$iconfigFileDeatils['extension'];
+                
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$configg);
+                $this->upload->initialize($configg);
+                
+                    if($this->upload->do_upload('Incorpfile'))
+                    {
+                        $uploadData = $this->upload->data();
+                        $companyIncorporation =$uploadData['file_name'];
+                    }
+                    else
+                    {
+                        $companyIncorporation = '';
+                    }
+            }else{
+                	  $companyIncorporation = $result[0]->comp_incorporation;
+                }
+
+            if(!empty($_FILES['aoa']['name']))
+	    	{   
+	    		$aoaDetails=pathinfo($_FILES['aoa']['name']);
+                $configgg['upload_path'] = 'assets/company_assets/company_AOA/';
+                $configgg['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx';
+                $configgg['file_name'] ='AOA-'.date('d-m-y-h-i-s').'-Image.'.$aoaDetails['extension'] ;
+                
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$configgg);
+                $this->upload->initialize($configgg);
+                
+                    if($this->upload->do_upload('aoa'))
+                    {
+                        $uploadData = $this->upload->data();
+                        $company_AOA =$uploadData['file_name'];
+                    }
+                    else
+                    {
+                    	$error = array('error_for_aoa' => $this->upload->display_errors());
+                    	print_r($error);
+                        $company_AOA = '';
+                    }
+			}
+			else{
+                	  $company_AOA = $result[0]->comp_aoa;
+                }
+           if(!empty($_FILES['moa']['name']))
+	    	{   
+	    		$moaDetails=pathinfo($_FILES['moa']['name']);
+                $configggg['upload_path'] = 'assets/company_assets/company_MOA/';
+                $configggg['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx';
+                $configggg['file_name'] = 'MOA-'.date('d-m-y-h-i-s').'-Image.'.$moaDetails['extension'] ;
+                
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$configggg);
+                $this->upload->initialize($configggg);
+                
+                    if($this->upload->do_upload('moa'))
+                    {
+                        $uploadData = $this->upload->data();
+                        $company_MOA =$uploadData['file_name'];
+                    }
+                    else
+                    {
+                    	$error = array('error_for_moa' => $this->upload->display_errors());
+                    	print_r($error);
+                        $company_MOA = '';
+                    }
+            }
+                else{
+                	  $company_MOA = $result[0]->comp_moa;
+                }
+              if(!empty($_FILES['gst']['name']))
+	    	{   
+	    		$gstDetails=pathinfo($_FILES['gst']['name']);
+                $configgggg['upload_path'] = 'assets/company_assets/company_GST/';
+                $configgggg['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx';
+                $configgggg['file_name'] = 'GST-'.date('d-m-y-h-i-s').'-Image.'.$gstDetails['extension'] ;
+                
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$configgggg);
+                $this->upload->initialize($configgggg);
+                
+                    if($this->upload->do_upload('gst'))
+                    {
+                        $uploadData = $this->upload->data();
+                        $company_GST =$uploadData['file_name'];
+                    }
+                    else
+                    {
+                    	$error = array('error_for_gst' => $this->upload->display_errors());
+                    	print_r($error);
+                        $company_GST = '';
+                    }
+            }
+                else{
+                	  $company_GST = $result[0]->comp_gst;
+                }
+		 if(!empty($_FILES['file']['name']))
+	    	{   
+	    		$logoDetails=pathinfo($_FILES['file']['name']);
+                $config['upload_path'] = 'assets/companyImages/logo/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = $this->input->post('company').'-'.date('d-m-y-h-i-s').'-Logo.'.$logoDetails['extension'] ;
+                
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+                
+                    if($this->upload->do_upload('file'))
+                    {
+                        $uploadData = $this->upload->data();
+                        $picture =$uploadData['file_name'];
+                    }
+                    else
+                    {
+                    	$error = array('error_for_logo' => $this->upload->display_errors());
+                    	print_r($error);
+                        $picture = '';
+                    }
+            }
+                else{
+                	  $picture = $result[0]->company_logo;
+                }
+                
+		         	$company=$this->input->post('company');
+		         	// $pwdEncyt=$this->encryption->encrypt(trim($this->input->post('pass')));
+					$data=array('company_name'=>$company,
+					'comp_desc'=>$this->input->post('desc'),
+					'comp_address'=>$this->input->post('address'),
+					'website_url'=>$this->input->post('url'),
+					'comp_phone'=>$this->input->post('comp_phone'),
+					'comp_address'=>$this->input->post('comp_address'),
+					'country'=>$this->input->post('country'),
+					'state'=>$this->input->post('state'),
+					'city'=>$this->input->post('city'),
+					'zipcode'=>$this->input->post('zipcode'),
+				
+					'company_reg_no'=>$this->input->post('regist'),
+				
+					'comp_incorporation'=>$companyIncorporation,
+					'comp_aoa'=>$company_AOA,
+					'comp_moa'=>$company_MOA,
+					'comp_gst'=>$company_GST,
+					'comp_plan_type'=>$this->input->post('Company_plans'),
+					'company_logo'=>$picture);
+					// print_r($data);
+					$results=$this->CAM->updateCompanyDetails($data,$comp_id);
+					if($results==1){
+						die(json_encode(array('status'=>1,'msg'=>"Added Successfully.")));
+					}
+					else if($results==2){
+						die(json_encode(array('status'=>2,'msg'=>"Already Exists.")));
+					}else{
+						die(json_encode(array('status'=>0,'msg'=>"Failed To Add.")));
+					}
+				
 	}
 }	
 ?>

@@ -197,4 +197,5 @@ class Admin_Dashboard extends CI_Controller
 		 $this->load->view('admin/Pages/view_PlanType',$data);
 		 $this->load->view('admin/Layout/footer');
 	}
+	
 }

@@ -95,7 +95,7 @@
  			$this->session->unset_userdata('companySession');
  			// $this->session->sess_destroy();
  		}
- 		redirect('Employee-Login');
+ 		redirect('Employer-Login');
  	}
 	public function companyRegistrationPage(){
 		$this->load->view('companyPanel/pages/companyRegister');
